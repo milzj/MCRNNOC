@@ -4,5 +4,4 @@ channels:
   - defaults
 dependencies:
   - pip:
-      - cyipopt
       - git+https://github.com/milzj/FW4PDE.git@v1.0.0
