@@ -2,13 +2,14 @@
 
 import pytest
 
-from fw4pde import *
+
 
 import numpy as np
 from fenics import *
 from dolfin_adjoint import *
 import moola
-import matplotlib.pyplot as plt
+
+from fw4pde import *
 
 set_log_level(30)
 
