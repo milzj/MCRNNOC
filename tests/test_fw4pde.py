@@ -80,7 +80,7 @@ def test_example71(stepsize, display):
     problem = MoolaOptimizationProblem(rf)
     u_moola = moola.DolfinPrimalVector(u)
 
-    scaled_L1_norm = fw4pde.problem.ScaledL1Norm(U,beta)
+    scaled_L1_norm = fw4pde.ScaledL1Norm(U,beta)
     box_constraints = fw4pde.problem.BoxConstraints(U, lb, ub)
     moola_box_lmo = fw4pde.algorithms.MoolaBoxLMO(box_constraints.lb, box_constraints.ub, beta)
 
