@@ -64,7 +64,7 @@ def example71():
 
     return rf, u, U, lb, ub, beta
 
-@pytest.mark.parametrize("stepsize", [fw4pde.DecreasingStepSize])
+@pytest.mark.parametrize("stepsize", [fw4pde.stepsize.DecreasingStepSize])
 @pytest.mark.parametrize("display", [0, 1, 2, 3])
 def test_example71(stepsize, display):
     "Test is designed to test step sizes."
