@@ -12,4 +12,3 @@ The code developed here is used in the working paper
 
 - [Johannes Milz](https://www.isye.gatech.edu/users/johannes-milz)
 - [Daniel Walter](https://www.mathematik.hu-berlin.de/de/personen/mitarb-vz/1694929)
-
