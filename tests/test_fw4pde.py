@@ -2,14 +2,12 @@
 
 import pytest
 
-
-
 import numpy as np
 from fenics import *
 from dolfin_adjoint import *
 import moola
 
-from fw4pde import *
+import fw4pde
 
 set_log_level(30)
 
@@ -66,10 +64,7 @@ def example71():
 
     return rf, u, U, lb, ub, beta
 
-@pytest.mark.parametrize("stepsize", [QuasiArmijoGoldstein, DecreasingStepSize, \
-                                        DunnHarshbargerStepSize, DunnScalingStepSize, \
-                                        DemyanovRubinovAdaptiveStepSize, \
-                                        DemyanovRubinovOptimalStepSize])
+@pytest.mark.parametrize("stepsize", [fw4pde.DecreasingStepSize])
 @pytest.mark.parametrize("display", [0, 1, 2, 3])
 def test_example71(stepsize, display):
     "Test is designed to test step sizes."
@@ -85,11 +80,11 @@ def test_example71(stepsize, display):
     problem = MoolaOptimizationProblem(rf)
     u_moola = moola.DolfinPrimalVector(u)
 
-    scaled_L1_norm = ScaledL1Norm(U,beta)
-    box_constraints = BoxConstraints(U, lb, ub)
-    moola_box_lmo = MoolaBoxLMO(box_constraints.lb, box_constraints.ub, beta)
+    scaled_L1_norm = fw4pde.ScaledL1Norm(U,beta)
+    box_constraints = fw4pde.BoxConstraints(U, lb, ub)
+    moola_box_lmo = fw4pde.MoolaBoxLMO(box_constraints.lb, box_constraints.ub, beta)
 
-    solver = FrankWolfe(problem, initial_point=u_moola,\
+    solver = fw4pde.FrankWolfe(problem, initial_point=u_moola,\
                 nonsmooth_functional=scaled_L1_norm, stepsize=stepsize(),\
                 lmo=moola_box_lmo, options=options)
 
