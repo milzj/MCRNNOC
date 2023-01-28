@@ -12,4 +12,4 @@ dependencies:
   - dolfin-adjoint=2019.1.0
   - pip
   - pip:
-      - git+https://github.com/milzj/FW4PDE.git@v1.0.0
+      - git+https://github.com/milzj/FW4PDE.git@pip
