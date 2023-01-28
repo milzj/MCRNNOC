@@ -1,6 +1,12 @@
 name: TEst
 
-on: [push]
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branchess:
+      - "*"
 
 jobs:
   build:
