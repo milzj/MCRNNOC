@@ -12,15 +12,6 @@ import matplotlib.pyplot as plt
 
 set_log_level(30)
 
-from algorithms import FrankWolfe, MoolaBoxLMO
-from problem import ScaledL1Norm, BoxConstraints
-from stepsize import QuasiArmijoGoldstein
-from stepsize import DecreasingStepSize
-from stepsize import DunnHarshbargerStepSize
-from stepsize import DunnScalingStepSize
-from stepsize import DemyanovRubinovAdaptiveStepSize
-from stepsize import DemyanovRubinovOptimalStepSize
-
 def example71():
     """Implements desired state of Example 7.1 in Ref. [1].
     as fenics expression and function.
