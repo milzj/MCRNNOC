@@ -1,10 +1,12 @@
+import numpy as np
+
 class OptionsSampler(object):
 
     def __init__(self):
 
             a = 100.0
             self._options = {
-                "std": 1.0,
+                "std": np.sqrt(2.0),
                 "rv_range": [-a, a]
             }
 

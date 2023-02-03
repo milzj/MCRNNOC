@@ -1,1 +1,2 @@
-from truncated_gaussian_sampler import TruncatedGaussianSampler
+from .truncated_gaussian_sampler import TruncatedGaussianSampler
+from .options_sampler import OptionsSampler
