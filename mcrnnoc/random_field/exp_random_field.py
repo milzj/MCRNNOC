@@ -2,10 +2,11 @@ import numpy as np
 from scipy import optimize
 import itertools
 
+from options_random_field import OptionsRandomField
+
 import fenics
 
-
-class LogNormalField(object):
+class ExpRandomField(object):
     """Implements a random field
 
     Computes exp(KL) where KL is a truncated KL expansion.
@@ -16,6 +17,8 @@ class LogNormalField(object):
     the KL expansion. The number of addends in this expansion
     is "(2*num_addends)**2."
 
+    function_space must be a nodal function space.
+
     References:
     ----------
 
@@ -25,10 +28,13 @@ class LogNormalField(object):
 
     """
 
-    def __init__(self, function_space , num_addends = 10, len_scale=0.1):
+    def __init__(self, function_space):
         # cos cos, sin cos, cos sin, sin sin
 
-        self.len_scale = len_scale
+        options_rf = OptionsRandomField().options
+
+        self.len_scale = options_rf["len_scale"]
+        num_addends = options_rf["num_addends"]
         self.num_addends = num_addends
         self.function_space = function_space
 
@@ -36,9 +42,16 @@ class LogNormalField(object):
         self.even_list = np.arange(0, 2*num_addends)[0::2]
         self.a = 0.5
 
+        self._num_rvs = (2*num_addends)**2
+
         self.compute_roots()
         self.compute_addends()
         self.compute_2d_addends()
+
+    @property
+    def num_rvs(self):
+        "Number of random variables in the KL expansion."
+        return self._num_rvs
 
     def compute_roots(self):
         """Computes the roots of the functions fodd and feven.
@@ -104,7 +117,6 @@ class LogNormalField(object):
 
         assert np.all(np.diff(even_roots) > 0.0) == True
 
-
     def compute_addends(self):
         """Compute addends of the KL expansion.
 
@@ -143,7 +155,6 @@ class LogNormalField(object):
 
         We compute the addends of the 2D KL expansion
         as described in Example 7.56.
-
         """
 
         eigenfunctions_times_sqrt = self.eigenfunctions_times_sqrt
@@ -163,27 +174,17 @@ class LogNormalField(object):
             v.interpolate(v_expr)
             addends.append(v.vector().get_local())
 
-        self.addends = addends
+        # Convert list to matrix
+        self.addends = np.vstack(addends).T
 
     def sample(self, samples):
+        """Compute a sample of KL expansion."""
 
         addends = self.addends
-        v = fenics.Function(self.function_space)
         w = fenics.Function(self.function_space)
 
-#        field = np.zeros(len(addends[0]))
-
-#        # Starting summation by smallest addend
-#        for k in zip(addends[::-1], samples[::-1]):
-#            a, b = k
-#            field += a*b
-
-        assert len(addends) == len(samples), "Number of samples differs from number of summands."
-
-        field = np.sum([a*b for a, b in zip(addends, samples)], axis=0)
-
-        v.vector()[:] = field
-        w.interpolate(fenics.Expression("exp(v)", v=v, degree=1))
+        field = addends @ samples
+        w.vector()[:] = np.exp(field)
 
         return w
 
