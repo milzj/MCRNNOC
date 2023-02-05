@@ -2,9 +2,10 @@ import numpy as np
 from scipy import optimize
 import itertools
 
-from options_random_field import OptionsRandomField
+from mcrnnoc.random_field.options_random_field import OptionsRandomField
 
-import fenics
+from fenics import *
+from dolfin_adjoint import *
 
 class ExpRandomField(object):
     """Implements a random field
@@ -117,6 +118,7 @@ class ExpRandomField(object):
 
         assert np.all(np.diff(even_roots) > 0.0) == True
 
+    @profile
     def compute_addends(self):
         """Compute addends of the KL expansion.
 
@@ -150,6 +152,7 @@ class ExpRandomField(object):
 
         self.eigenfunctions_times_sqrt = eigenfunctions_times_sqrt
 
+    @profile
     def compute_2d_addends(self):
         """Compute addends of the KL expansion.
 
@@ -163,25 +166,26 @@ class ExpRandomField(object):
 
         addends = []
 
-        v = fenics.Function(self.function_space)
+        v = Function(self.function_space)
 
         for i in products:
             a, b = i
             a = a.replace("x", "(x[0]-0.5)")
             b = b.replace("x", "(x[1]-0.5)")
             c = "{}*{}".format(a,b)
-            v_expr = fenics.Expression(c, degree=1)
+            v_expr = Expression(c, degree=1)
             v.interpolate(v_expr)
             addends.append(v.vector().get_local())
 
         # Convert list to matrix
         self.addends = np.vstack(addends).T
 
+    @profile
     def sample(self, samples):
         """Compute a sample of KL expansion."""
 
         addends = self.addends
-        w = fenics.Function(self.function_space)
+        w = Function(self.function_space)
 
         field = addends @ samples
         w.vector()[:] = np.exp(field)
