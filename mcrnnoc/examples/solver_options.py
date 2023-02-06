@@ -20,4 +20,4 @@ class SolverOptions(object):
     @property
     def stepsize(self):
         "Step size rule for conditional gradient method."
-        return sel._stepsize
+        return self._stepsize
