@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
     import sys, os
 
-    n = 64
+    n = 128
     num_addends = 20
 
     outdir = "exp_random_field/"

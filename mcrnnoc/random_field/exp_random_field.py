@@ -118,7 +118,6 @@ class ExpRandomField(object):
 
         assert np.all(np.diff(even_roots) > 0.0) == True
 
-    @profile
     def compute_addends(self):
         """Compute addends of the KL expansion.
 
@@ -130,57 +129,107 @@ class ExpRandomField(object):
         a = self.a
         len_scale = self.len_scale
         num_addends = self.num_addends
-        eigenfunctions_times_sqrt = []
+        amplitudes = []
+        frequencies = []
 
         # odd
         k = 0
         for i in self.odd_list:
             omega = np.pi*self.odd_roots[k]
+            frequencies.append(omega)
             A = 1.0/np.sqrt(a+np.sin(2*omega*a)/2/omega)
             nu = 2.0/len_scale/(omega**2+1/len_scale**2)
-            eigenfunctions_times_sqrt.append("{}*cos({}*x)".format(A*np.sqrt(nu), omega))
+            amplitudes.append(A*np.sqrt(nu))
             k+=1
 
         # even
         k = 0
         for i in self.even_list:
             omega = np.pi*self.even_roots[k]
+            frequencies.append(omega)
             B = 1.0/np.sqrt(a-np.sin(2*omega*a)/2/omega)
             nu = 2.0/len_scale/(omega**2+1/len_scale**2)
-            eigenfunctions_times_sqrt.append("{}*sin({}*x)".format(B*np.sqrt(nu), omega))
+            amplitudes.append(B*np.sqrt(nu))
             k+=1
 
-        self.eigenfunctions_times_sqrt = eigenfunctions_times_sqrt
+        self.amplitudes = amplitudes
+        self.frequencies = frequencies
 
-    @profile
+
     def compute_2d_addends(self):
         """Compute addends of the KL expansion.
 
         We compute the addends of the 2D KL expansion
-        as described in Example 7.56.
+        as described in Example 7.56, that is, all combinations
+        of certain 1D KL expansions.
+
+        TODO: Improve current implementation.
         """
 
-        eigenfunctions_times_sqrt = self.eigenfunctions_times_sqrt
+        function_space = self.function_space
+        v = Function(function_space)
+        element = function_space.ufl_element()
 
-        products = list(itertools.product(eigenfunctions_times_sqrt, eigenfunctions_times_sqrt))
+        coscos_expr = Expression("C*cos(A*(x[0]-0.5))*cos(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element)
+        cossin_expr = Expression("C*cos(A*(x[0]-0.5))*sin(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element)
+        sinsin_expr = Expression("C*sin(A*(x[0]-0.5))*sin(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element)
+        sincos_expr = Expression("C*sin(A*(x[0]-0.5))*cos(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element)
 
-        addends = []
+        num_addends = self.num_addends
+        amplitudes = self.amplitudes
+        frequencies = self.frequencies
 
-        v = Function(self.function_space)
+        _addends = []
 
-        for i in products:
-            a, b = i
-            a = a.replace("x", "(x[0]-0.5)")
-            b = b.replace("x", "(x[1]-0.5)")
-            c = "{}*{}".format(a,b)
-            v_expr = Expression(c, degree=1)
-            v.interpolate(v_expr)
-            addends.append(v.vector().get_local())
+        # cos ...
+        for i in range(0, num_addends):
 
-        # Convert list to matrix
-        self.addends = np.vstack(addends).T
+            # coscos
+            for j in range(0, num_addends):
 
-    @profile
+                coscos_expr.C = amplitudes[i]*amplitudes[j]
+                coscos_expr.A = frequencies[i]
+                coscos_expr.B = frequencies[j]
+
+                v.interpolate(coscos_expr)
+                _addends.append(v.vector().get_local())
+
+            # cossin
+            for j in range(num_addends, 2*num_addends):
+
+                cossin_expr.C = amplitudes[i]*amplitudes[j]
+                cossin_expr.A = frequencies[i]
+                cossin_expr.B = frequencies[j]
+
+                v.interpolate(cossin_expr)
+                _addends.append(v.vector().get_local())
+
+        # sin ...
+        for i in range(num_addends, 2*num_addends):
+
+            # cos
+            for j in range(0, num_addends):
+
+                sincos_expr.C = amplitudes[i]*amplitudes[j]
+                sincos_expr.A = frequencies[i]
+                sincos_expr.B = frequencies[j]
+
+                v.interpolate(sincos_expr)
+                _addends.append(v.vector().get_local())
+
+            # sin
+            for j in range(num_addends, 2*num_addends):
+
+                sinsin_expr.C = amplitudes[i]*amplitudes[j]
+                sinsin_expr.A = frequencies[i]
+                sinsin_expr.B = frequencies[j]
+
+                v.interpolate(sinsin_expr)
+                _addends.append(v.vector().get_local())
+
+
+        self.addends = np.vstack(_addends).T
+
     def sample(self, samples):
         """Compute a sample of KL expansion."""
 
