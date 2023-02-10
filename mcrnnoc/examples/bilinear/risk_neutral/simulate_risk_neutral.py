@@ -22,10 +22,11 @@ from mcrnnoc.random_field.exp_random_field import ExpRandomField
 n = int(sys.argv[1])
 now = str(sys.argv[2])
 N = int(sys.argv[3])
+seed = int(sys.argv[4])
 
 import os
-outdir = "output/"
-outdir = outdir+"Risk_Neutral_Simulation_n="+str(n)+"_N_="+str(N)+"_date={}".format(now)
+outdir = "output/" + str(now) + "/" + str(seed) + "/"
+outdir = outdir+"Risk_Neutral_Simulation_n="+str(n)+"_N_="+str(N)+"_seed_" + str(seed) + "_date={}".format(now)
 if not os.path.exists(outdir):
 	os.makedirs(outdir)
 
@@ -58,6 +59,7 @@ bc = DirichletBC(V, 0.0, "on_boundary")
 
 
 sampler = TruncatedGaussianSampler()
+sampler._seed = seed
 exp_kappa = ExpRandomField(U)
 num_rvs = exp_kappa.num_rvs
 
@@ -76,6 +78,7 @@ for i in range(N):
     Y = Function(V)
     solver.solve(Y.vector(), b)
     j = assemble(0.5*inner(Y-yd,Y-yd)*dx)
+    print(j)
     J += 1.0/(i+1.0)*(j-J)
 
 control = Control(u)
