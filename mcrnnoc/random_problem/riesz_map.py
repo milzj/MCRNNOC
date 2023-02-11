@@ -10,7 +10,7 @@ class RieszMap(object):
         self.V = V
         import dolfin
 
-        if inner_product is not "custom":
+        if inner_product != "custom":
 
             u = dolfin.TrialFunction(V)
             v = dolfin.TestFunction(V)
