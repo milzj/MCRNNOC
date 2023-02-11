@@ -169,11 +169,12 @@ class ExpRandomField(object):
         function_space = self.function_space
         v = Function(function_space)
         element = function_space.ufl_element()
+        mpi_comm = function_space.mesh().mpi_comm()
 
-        coscos_expr = Expression("C*cos(A*(x[0]-0.5))*cos(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element)
-        cossin_expr = Expression("C*cos(A*(x[0]-0.5))*sin(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element)
-        sinsin_expr = Expression("C*sin(A*(x[0]-0.5))*sin(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element)
-        sincos_expr = Expression("C*sin(A*(x[0]-0.5))*cos(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element)
+        coscos_expr = Expression("C*cos(A*(x[0]-0.5))*cos(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element, mpi_comm=mpi_comm)
+        cossin_expr = Expression("C*cos(A*(x[0]-0.5))*sin(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element, mpi_comm=mpi_comm)
+        sinsin_expr = Expression("C*sin(A*(x[0]-0.5))*sin(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element, mpi_comm=mpi_comm)
+        sincos_expr = Expression("C*sin(A*(x[0]-0.5))*cos(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element, mpi_comm=mpi_comm)
 
         num_addends = self.num_addends
         amplitudes = self.amplitudes
