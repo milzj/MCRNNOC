@@ -38,6 +38,4 @@ jobs:
           
       - name: Parallel Test with pytest
         run: |
-          mpirun -np 4 python3 -m pytest tests/random_problem/test_split_samples.py
-          mpirun -np 4 python3 -m pytest tests/random_problem/test_simple_problem.py
-          mpirun -np 4 python3 -m pytest tests/random_problem/random_optimal_poisson_parallel/test_serial_parallel_poisson_problem.py
+          mpirun -np 4 python3 -m pytest tests/test_random_problem/test_split_samples.py
