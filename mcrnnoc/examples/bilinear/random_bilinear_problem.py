@@ -8,24 +8,24 @@ from mcrnnoc.random_field.exp_random_field import ExpRandomField
 
 class RandomSemilinearProblem(RandomProblem):
 
-	def __init__(self, n):
+    def __init__(self, n):
 
-		set_working_tape(Tape())
+        set_working_tape(Tape())
 
-		self.n = n
+        self.n = n
 
         # function spaces and functions
-		mesh = UnitSquareMesh(MPI.comm_self, n, n)
-		V = FunctionSpace(mesh, "CG", 1)
-		U = FunctionSpace(mesh, "DG", 0)
+        mesh = UnitSquareMesh(MPI.comm_self, n, n)
+        V = FunctionSpace(mesh, "CG", 1)
+        U = FunctionSpace(mesh, "DG", 0)
 
-		self.V = V
-		self.U = U
+        self.V = V
+        self.U = U
 
-		self.y = Function(V)
+        self.y = Function(V)
         self.s = TrailFunction(V)
-		self.v = TestFunction(V)
-		self.u = Function(U)
+        self.v = TestFunction(V)
+        self.u = Function(U)
 
         # problem data
         self.lb = problem_data.lb
@@ -34,17 +34,17 @@ class RandomSemilinearProblem(RandomProblem):
         self.f = problem_data.f
         self.g = problem_data.g
         self.yd = problem_data.yd
-		self.bcs = DirichletBC(self.V, 0.0, "on_boundary")
+        self.bcs = DirichletBC(self.V, 0.0, "on_boundary")
 
         # random field
         self.kappa = ExpRandomField(U)
 
-	@property
-	def control_space(self):
-		return self.U
+    @property
+    def control_space(self):
+        return self.U
 
 
-	def state(self, y, s, v, u, sample):
+    def state(self, y, s, v, u, sample):
         """Bilinear PDE"""
 
         g = self.g
@@ -59,13 +59,13 @@ class RandomSemilinearProblem(RandomProblem):
         solver = LUSolver(A, "petsc")
         solver.solve(y.vector(), b)
 
-	def __call__(self, u, sample):
+    def __call__(self, u, sample):
 
-		y = self.y
-		s = self.s
-		yd = self.yd
-		v = self.v
-		self.state(y, s, v, u, sample)
+        y = self.y
+        s = self.s
+        yd = self.yd
+        v = self.v
+        self.state(y, s, v, u, sample)
 
         return assemble(0.5*inner(y-yd,y-yd)*dx)
 
