@@ -10,6 +10,5 @@ dependencies:
   - numpy=1.21.1
   - matplotlib=3.4.2
   - dolfin-adjoint=2019.1.0
-  - pip
   - pip:
       - git+https://github.com/milzj/FW4PDE.git@pip
