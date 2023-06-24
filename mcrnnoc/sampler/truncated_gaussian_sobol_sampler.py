@@ -11,10 +11,11 @@ class ReferenceTruncatedGaussianSobolSampler(object):
         options_sampler = OptionsSampler().options
         std = options_sampler["std"]
         rv_range = options_sampler["rv_range"]
+        loc = options_sampler["loc"]
 
         self.rv_range = rv_range
         self.std = std
-
+        self.loc = loc
         self._seed = 1
 
     @property
@@ -40,14 +41,15 @@ class ReferenceTruncatedGaussianSobolSampler(object):
 
         std = self.std
         a, b = self.rv_range
+        loc = self.loc
         self.bump_seed()
         seed = self.seed
 
         sampler = qmc.Sobol(d=d, scramble=True, seed=seed)
         q = sampler.random_base2(m=m)
 
-
-        s = truncnorm.ppf(q, a/std, b/std, loc=0, scale=std)
+        a_, b_ = (a - loc) / std, (b - loc) / std
+        s = truncnorm.ppf(q, a_, b_, loc=loc, scale=std)
 
         return s
 

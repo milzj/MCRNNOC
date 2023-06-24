@@ -11,9 +11,11 @@ class ReferenceTruncatedGaussianSampler(object):
         options_sampler = OptionsSampler().options
         std = options_sampler["std"]
         rv_range = options_sampler["rv_range"]
+        loc = options_sampler["loc"]
 
         self.rv_range = rv_range
         self.std = std
+        self.loc = loc
 
     def reference_samples(self, d=2, m=2):
         """Reference sample
@@ -34,6 +36,7 @@ class ReferenceTruncatedGaussianSampler(object):
 
         std = self.std
         a, b = self.rv_range
+        loc = self.loc
 
         sampler = qmc.Sobol(d=d, scramble=False)
         q = sampler.random_base2(m=m)
@@ -41,7 +44,8 @@ class ReferenceTruncatedGaussianSampler(object):
 
         assert np.all(q < 1.0), "Invalid shift of Sobol' sequence."
 
-        s = truncnorm.ppf(q, a/std, b/std, loc=0, scale=std)
+        a_, b_ = (a - loc) / std, (b - loc) / std
+        s = truncnorm.ppf(q, a_, b_, loc=loc, scale=std)
 
         return s
 

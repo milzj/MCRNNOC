@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.stats import truncnorm
 
-from .options_sampler import OptionsSampler
+from options_sampler import OptionsSampler
 
 class TruncatedGaussianSampler(object):
 
@@ -10,10 +10,12 @@ class TruncatedGaussianSampler(object):
         options_sampler = OptionsSampler().options
         std = options_sampler["std"]
         rv_range = options_sampler["rv_range"]
+        loc = options_sampler["loc"]
 
         self._seed = 1
         self.std = std
         self.rv_range = rv_range
+        self.loc = loc
 
     @property
     def seed(self):
@@ -27,10 +29,13 @@ class TruncatedGaussianSampler(object):
 
         a, b = self.rv_range
         std = self.std
+        loc = self.loc
 
         self.bump_seed()
         np.random.seed(self.seed)
-        Z = truncnorm.rvs(a/std, b/std, loc=0.0, scale=std, size=num_rvs)
+
+        a_, b_ = (a - loc) / std, (b - loc) / std
+        Z = truncnorm.rvs(a_, b_, loc=loc, scale=std, size=num_rvs)
 
         return Z
 
