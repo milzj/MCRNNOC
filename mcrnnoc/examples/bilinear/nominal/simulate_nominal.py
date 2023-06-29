@@ -13,6 +13,7 @@ from fw4pde.stepsize import DunnScalingStepSize
 
 from mcrnnoc.examples import ProblemData
 from mcrnnoc.examples import SolverOptions
+from mcrnnoc.misc.criticality_measure import criticality_measure
 
 import matplotlib.pyplot as plt
 
@@ -88,6 +89,13 @@ with stop_annotating():
     solution_final = sol["control_final"].data
     filename = outdir + "/" + "final_nominal_n={}".format(n)
     np.savetxt(filename + ".txt", solution_final.vector().get_local())
+
+    gradient_final = sol["gradient_final"].data
+
+    # Comparing canonical criticality measure and dual gap
+    cm_value = criticality_measure(solution_final, gradient_final, box_constraints.lb, box_constraints.ub, beta)
+    dual_gap = sol["dual_gap"]
+    assert cm_value <= sqrt(dual_gap)
 
     p = plot(solution_final)
     plt.colorbar(p)
