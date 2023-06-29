@@ -65,7 +65,7 @@ def test_crit_measure_dual_gap():
     solution.vector()[:] = -1*np.sign(gradient_vec)
 
     control = Function(U)
-    control.vector()[:] = np.clip(np.random.uniform(U.dim()), lb, ub)
+    control.vector()[:] = np.clip(np.random.randn(U.dim()), lb, ub)
 
     control_minus_solution = Function(U)
     control_minus_solution_vec = control.vector()[:]-solution.vector()[:]
