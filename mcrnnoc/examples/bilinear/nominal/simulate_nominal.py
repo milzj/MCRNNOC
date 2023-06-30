@@ -103,6 +103,12 @@ with stop_annotating():
     plt.savefig(filename +  ".png", bbox_inches="tight")
     plt.close()
 
+    p = plot(gradient_final)
+    plt.colorbar(p)
+    plt.savefig(outdir + "/" + "gradient_final_nominal_n={}".format(n) +  ".pdf", bbox_inches="tight")
+    plt.savefig(outdir + "/" + "gradient_final_nominal_n={}".format(n) +  ".png", bbox_inches="tight")
+    plt.close()
+
     solution_best = sol["control_best"].data
     filename = outdir + "/" + "best_nominal_n={}".format(n)
     np.savetxt(filename + ".txt", solution_best.vector().get_local())
