@@ -2,8 +2,6 @@ import numpy as np
 from scipy import optimize
 import itertools
 
-from mcrnnoc.random_field.options_random_field import OptionsRandomField
-
 from fenics import *
 from dolfin_adjoint import *
 
@@ -14,11 +12,14 @@ class ExpRandomField(object):
     The truncated KL expansion is defined using the separable covariance operator
     considered in Example 7.56 in Lord, Powell, Shardlow (2014).
 
-    Note: "num_addends" is actually not the number of addends in
+    Notes:
+    (1) "num_addends" is actually not the number of addends in
     the KL expansion. The number of addends in this expansion
     is "(2*num_addends)**2."
 
-    function_space must be a nodal function space.
+    (2) function_space must be a nodal function space.
+
+    (3) Code should not be run in parallel.
 
     References:
     ----------
@@ -29,21 +30,21 @@ class ExpRandomField(object):
 
     """
 
-    def __init__(self, function_space):
+    def __init__(self, function_space, options_random_field):
         # cos cos, sin cos, cos sin, sin sin
 
-        options_rf = OptionsRandomField().options
+        options_rf = options_random_field
 
         self.len_scale = options_rf["len_scale"]
         num_addends = options_rf["num_addends"]
         self.num_addends = num_addends
         self.function_space = function_space
 
-        self.odd_list = np.arange(0, 2*num_addends)[1::2]
-        self.even_list = np.arange(0, 2*num_addends)[0::2]
+        self.odd_list = np.arange(0, num_addends)[1::2]
+        self.even_list = np.arange(0, num_addends)[0::2]
         self.a = 0.5
 
-        self._num_rvs = (2*num_addends)**2
+        self._num_rvs = num_addends**2
 
         self.compute_roots()
         self.compute_addends()
@@ -75,8 +76,8 @@ class ExpRandomField(object):
         a = self.a
 
         num_addends = self.num_addends
-        odd_roots = np.zeros(num_addends)
-        even_roots = np.zeros(num_addends)
+        odd_roots = np.zeros(len(self.odd_list))
+        even_roots = np.zeros(len(self.even_list))
 
         #fodd transformed by multiplying by cos(pi*x*a)
         fodd = lambda x: 1.0/len_scale*np.cos(np.pi*x*a) - np.pi*x*np.sin(np.pi*x*a)
@@ -123,7 +124,6 @@ class ExpRandomField(object):
 
         We compute the addends of the 1D KL expansion
         as described in Example 7.55.
-
         """
 
         a = self.a
@@ -156,6 +156,38 @@ class ExpRandomField(object):
         self.frequencies = frequencies
 
 
+    def eigenfunctions(self, i, k):
+
+        if i % 2 != 0 and k % 2 != 0:
+            A_i = "1.0/sqrt(a+sin(2*omega_i*a)/2/omega_i)"
+            A_k = "1.0/sqrt(a+sin(2*omega_k*a)/2/omega_k)"
+            return A_i+"*"+"cos(omega_i*(x[0]-a))"+"*"+A_k+"*"+"cos(omega_k*(x[1]-a))"
+        elif i % 2 != 0 and k % 2 == 0:
+            A_i = "1.0/sqrt(a+sin(2*omega_i*a)/2/omega_i)"
+            B_k = "1.0/sqrt(a-sin(2*omega_k*a)/2/omega_k)"
+            return A_i+"*"+"cos(omega_i*(x[0]-a))"+"*"+B_k+"*"+"sin(omega_k*(x[1]-a))"
+        elif i % 2 == 0 and k % 2 != 0:
+            B_i = "1.0/sqrt(a-sin(2*omega_i*a)/2/omega_i)"
+            A_k = "1.0/sqrt(a+sin(2*omega_k*a)/2/omega_k)"
+            return B_i+"*"+"sin(omega_i*(x[0]-a))"+"*"+A_k+"*"+"cos(omega_k*(x[1]-a))"
+        elif i % 2 == 0 and k % 2 == 0:
+            B_i = "1.0/sqrt(a-sin(2*omega_i*a)/2/omega_i)"
+            B_k = "1.0/sqrt(a-sin(2*omega_k*a)/2/omega_k)"
+            return B_i+"*"+"sin(omega_i*(x[0]-a))"+"*"+B_k+"*"+"sin(omega_k*(x[1]-a))"
+
+    def omegas(self, i):
+
+        j = int(np.ceil(i/2))
+
+        if i % 2 != 0:
+            return np.pi*self.odd_roots[j-1]
+        else:
+            return np.pi*self.even_roots[j-1]
+
+    def eigenvalues(self, l, omega):
+
+        return 2/l/(1/l**2+omega**2)
+
     def compute_2d_addends(self):
         """Compute addends of the KL expansion.
 
@@ -167,72 +199,38 @@ class ExpRandomField(object):
         """
 
         function_space = self.function_space
-        v = Function(function_space)
         element = function_space.ufl_element()
         mpi_comm = function_space.mesh().mpi_comm()
-
-        coscos_expr = Expression("C*cos(A*(x[0]-0.5))*cos(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element, mpi_comm=mpi_comm)
-        cossin_expr = Expression("C*cos(A*(x[0]-0.5))*sin(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element, mpi_comm=mpi_comm)
-        sinsin_expr = Expression("C*sin(A*(x[0]-0.5))*sin(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element, mpi_comm=mpi_comm)
-        sincos_expr = Expression("C*sin(A*(x[0]-0.5))*cos(B*(x[1]-0.5))", C = 0.0, A = 0.0, B=0.0, element=element, mpi_comm=mpi_comm)
+        v = Function(function_space)
+        len_scale = self.len_scale
+        a = self.a
 
         num_addends = self.num_addends
-        amplitudes = self.amplitudes
-        frequencies = self.frequencies
 
         _addends = []
 
-        # cos ...
-        for i in range(0, num_addends):
+        idx_pairs = list(itertools.product(range(1, self.num_addends+1), repeat=2))
 
-            # coscos
-            for j in range(0, num_addends):
-
-                coscos_expr.C = amplitudes[i]*amplitudes[j]
-                coscos_expr.A = frequencies[i]
-                coscos_expr.B = frequencies[j]
-
-                v.interpolate(coscos_expr)
-                _addends.append(v.vector().get_local())
-
-            # cossin
-            for j in range(num_addends, 2*num_addends):
-
-                cossin_expr.C = amplitudes[i]*amplitudes[j]
-                cossin_expr.A = frequencies[i]
-                cossin_expr.B = frequencies[j]
-
-                v.interpolate(cossin_expr)
-                _addends.append(v.vector().get_local())
-
-        # sin ...
-        for i in range(num_addends, 2*num_addends):
-
-            # cos
-            for j in range(0, num_addends):
-
-                sincos_expr.C = amplitudes[i]*amplitudes[j]
-                sincos_expr.A = frequencies[i]
-                sincos_expr.B = frequencies[j]
-
-                v.interpolate(sincos_expr)
-                _addends.append(v.vector().get_local())
-
-            # sin
-            for j in range(num_addends, 2*num_addends):
-
-                sinsin_expr.C = amplitudes[i]*amplitudes[j]
-                sinsin_expr.A = frequencies[i]
-                sinsin_expr.B = frequencies[j]
-
-                v.interpolate(sinsin_expr)
-                _addends.append(v.vector().get_local())
-
+        for (i,k) in idx_pairs:
+            expression_str = self.eigenfunctions(i, k)
+            omega_i = self.omegas(i)
+            omega_k = self.omegas(k)
+            eigenvalue_i = self.eigenvalues(len_scale, omega_i)
+            eigenvalue_k = self.eigenvalues(len_scale, omega_k)
+            s = np.sqrt(eigenvalue_i)*np.sqrt(eigenvalue_k)
+            eigenfunction_ = Expression("s*"+expression_str, s = s, a = a, \
+                                    omega_i = omega_i, omega_k = omega_k, element=element, mpi_comm = mpi_comm)
+            v.interpolate(eigenfunction_)
+            _addends.append(v.vector().get_local())
 
         self.addends = np.vstack(_addends).T
 
     def sample(self, samples):
-        """Compute a sample of KL expansion."""
+        """Compute a sample of KL expansion.
+
+        We compute the sample using a matrix vector multiplication
+        with vector being the samples.
+        """
 
         addends = self.addends
         w = Function(self.function_space)
@@ -242,3 +240,5 @@ class ExpRandomField(object):
 
         return w
 
+    def __call__(self, samples):
+        return self.sample(samples)

@@ -3,6 +3,8 @@ import fenics
 from mcrnnoc.sampler import TruncatedGaussianSampler
 from exp_random_field import ExpRandomField
 
+from options_random_field import OptionsRandomField
+
 import matplotlib.pyplot as plt
 
 import numpy as np
@@ -15,7 +17,7 @@ def plot_exp_random_field(outdir, n, num_addends):
     mesh = fenics.UnitSquareMesh(n,n)
     U = fenics.FunctionSpace(mesh, "CG", 1)
     u = fenics.Function(U)
-    exp_kappa = ExpRandomField(U)
+    exp_kappa = ExpRandomField(U, OptionsRandomField().options)
     num_rvs = exp_kappa.num_rvs
 
     for i in range(N):
@@ -41,7 +43,7 @@ if __name__ == "__main__":
     n = 128
     num_addends = 20
 
-    outdir = "exp_random_field/"
+    outdir = "exp_random_field_plots/"
     if not os.path.exists(outdir):
         os.makedirs(outdir)
 
