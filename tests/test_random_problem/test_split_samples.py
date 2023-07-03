@@ -1,6 +1,6 @@
 import pytest
 
-from random_problem import SplitSamples
+from mcrnnoc.random_problem import SplitSamples
 
 def test_split_samples():
 
