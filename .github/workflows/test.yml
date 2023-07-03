@@ -34,8 +34,9 @@ jobs:
       - name: Test with pytest
         run: |
           conda install pytest
+          pip install -e .
           pytest
-          
+
       - name: Parallel Test with pytest
         run: |
           mpirun -np 4 python3 -m pytest tests/test_random_problem/test_split_samples.py

@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.stats import truncnorm
 
-from options_sampler import OptionsSampler
+from .options_sampler import OptionsSampler
 
 class TruncatedGaussianSampler(object):
 
