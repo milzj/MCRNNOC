@@ -13,6 +13,7 @@ from fw4pde.stepsize import DemyanovRubinovOptimalStepSize
 
 from mcrnnoc.examples import ProblemData
 from mcrnnoc.examples import SolverOptions
+from mcrnnoc.misc.criticality_measure import criticality_measure
 
 import matplotlib.pyplot as plt
 
@@ -78,7 +79,7 @@ for i in range(N):
     Y = Function(V)
     solver.solve(Y.vector(), b)
     j = assemble(0.5*inner(Y-yd,Y-yd)*dx)
-    print(j)
+    # stochastic gradient descent step
     J += 1.0/(i+1.0)*(j-J)
 
 control = Control(u)
@@ -103,13 +104,25 @@ with stop_annotating():
     sol = solver.solve()
 
     solution_final = sol["control_final"].data
+    gradient_final = sol["gradient_final"].data
     filename = outdir + "/" + "final_nominal_n={}_N={}".format(n,N)
     np.savetxt(filename + ".txt", solution_final.vector().get_local())
+
+    # Comparing canonical criticality measure and dual gap
+    cm_value = criticality_measure(solution_final, gradient_final, box_constraints.lb, box_constraints.ub, beta)
+    dual_gap = sol["dual_gap"]
+    assert cm_value <= sqrt(dual_gap)
 
     p = plot(solution_final)
     plt.colorbar(p)
     plt.savefig(filename +  ".pdf", bbox_inches="tight")
     plt.savefig(filename +  ".png", bbox_inches="tight")
+    plt.close()
+
+    p = plot(gradient_final)
+    plt.colorbar(p)
+    plt.savefig(outdir + "/" + "gradient_final_nominal_n={}".format(n) +  ".pdf", bbox_inches="tight")
+    plt.savefig(outdir + "/" + "gradient_final_nominal_n={}".format(n) +  ".png", bbox_inches="tight")
     plt.close()
 
     solution_best = sol["control_best"].data
