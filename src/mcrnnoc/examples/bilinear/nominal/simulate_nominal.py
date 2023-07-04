@@ -16,6 +16,8 @@ from mcrnnoc.examples import SolverOptions
 from mcrnnoc.misc.criticality_measure import criticality_measure
 
 import matplotlib.pyplot as plt
+from mcrnnoc.stats import save_dict
+
 
 n = int(sys.argv[1])
 now = str(sys.argv[2])
@@ -26,14 +28,16 @@ outdir = outdir+"Nominal_Simulation_n="+str(n)+"_date={}".format(now)
 if not os.path.exists(outdir):
 	os.makedirs(outdir)
 
-problem_data = ProblemData()
 solver_options = SolverOptions()
 
 # solver options
 options = solver_options.options
-stepsize = DunnScalingStepSize()
+stepsize = solver_options.stepsize
 
-# problem data
+# PDE and problem data
+mesh = UnitSquareMesh(n,n)
+problem_data = ProblemData(mesh.mpi_comm())
+
 lb = problem_data.lb
 ub = problem_data.ub
 beta = problem_data.beta
@@ -41,8 +45,6 @@ f = problem_data.f
 g = problem_data.g
 yd = problem_data.yd
 
-# PDE
-mesh = UnitSquareMesh(n,n)
 
 U = FunctionSpace(mesh, "DG", 0)
 V = FunctionSpace(mesh, "CG", 1)
@@ -119,12 +121,17 @@ with stop_annotating():
     plt.savefig(filename +  ".png", bbox_inches="tight")
     plt.close()
 
-    obj = problem.obj
-    solution_final = sol["control_final"]
-    obj(solution_final)
-    gradient = obj.derivative(solution_final).primal()
-    gradient_vec = gradient.data.vector()[:]
-    filename = outdir + "/" + "final_gradient_vec_n={}".format(n)
-    np.savetxt(filename+ ".txt", gradient_vec)
+    gradient_final_vec = sol["gradient_final"].data.vector()[:]
+    filename = outdir + "/" + "gradient_final_vec_n={}".format(n)
+    np.savetxt(filename+ ".txt", gradient_final_vec)
 
+    # save exit data
+    filename = now + "_reference_solution_n={}_exit_data".format(n)
+    # Transform moola objects to arrays
+    sol["control_final"] = sol["control_final"].data.vector()[:]
+    sol["control_best"] = sol["control_best"].data.vector()[:]
+    sol["gradient_final"] = sol["gradient_final"].data.vector()[:]
+    sol["gradient_best"] = sol["gradient_best"].data.vector()[:]
+
+    save_dict(outdir, filename, sol)
 

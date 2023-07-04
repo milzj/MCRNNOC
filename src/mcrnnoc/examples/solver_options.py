@@ -1,15 +1,16 @@
 import numpy as np
+from fw4pde.stepsize import DemyanovRubinovOptimalStepSize
 
 class SolverOptions(object):
 
     def __init__(self):
 
-        maxiter = 100
-        gtol = 1e-6
+        maxiter = 30
+        gtol = 1e-8
         ftol = -np.inf
 
         self._options = {"maxiter": maxiter, "gtol": gtol, "ftol": ftol}
-        self._stepsize = "DemyanovRubinovOptimalStepSize"
+        self._stepsize = DemyanovRubinovOptimalStepSize()
 
 
     @property

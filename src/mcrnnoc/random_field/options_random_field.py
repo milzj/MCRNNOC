@@ -3,7 +3,7 @@ class OptionsRandomField(object):
     def __init__(self):
 
             self._options = {
-                "num_addends": 16,
+                "num_addends": 30,
                 "len_scale": 1.0
             }
 

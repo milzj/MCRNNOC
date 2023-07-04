@@ -13,7 +13,7 @@ from fw4pde.stepsize import DemyanovRubinovOptimalStepSize
 
 from mcrnnoc.examples import ProblemData
 from mcrnnoc.examples import SolverOptions
-from mcrnnoc.misc.criticality_measure import criticality_measure
+from mcrnnoc.misc import criticality_measure
 
 import matplotlib.pyplot as plt
 
