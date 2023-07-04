@@ -16,9 +16,8 @@ conda activate MCRNNOC
 
 ## References
 
-- The implementation of the [random field](./mcrnnoc/random_field) is adapted from
+- The implementation of the [random field](./src/mcrnnoc/random_field) is adapted from
 [poisson-risk-neutral-lognormal](https://github.com/milzj/FW4PDE/tree/main/examples/convex/poisson-risk-neutral-lognormal).
-The implementation is adapted in that implementation details are added. 
 It implements the KL expansion defined in Example 7.56 ("separable exponential $d=2$") with $a = a_1 = a_2 = 1/2$ in 
 > G. J. Lord, C. E. Powell, and T. Shardlow. An Introduction to Computational Stochastic PDEs. Cambridge Texts Appl. Math. 50. Cambridge University Press, Cambridge, 2014. doi:10.1017/CBO9781139017329.
 
