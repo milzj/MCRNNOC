@@ -13,10 +13,11 @@
 cd $HOME/MCRNNOC/src/mcrnnoc/examples/bilinear/risk_neutral
 
 module load anaconda3/2022.05.0.1
-conda activate SAA4PDE
+conda activate MCRNNOC
 module load gcc
 
 export PYTHONPATH=$HOME/MCRNNOC:${PYTHONPATH}
+export PYTHONPATH=$HOME/MCRNNOC/src:${PYTHONPATH}
 
 
 date=$(date '+%d-%b-%Y-%H-%M-%S')
