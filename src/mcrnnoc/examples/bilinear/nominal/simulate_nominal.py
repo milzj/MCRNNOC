@@ -92,6 +92,13 @@ with stop_annotating():
     filename = outdir + "/" + "final_nominal_n={}".format(n)
     np.savetxt(filename + ".txt", solution_final.vector().get_local())
 
+    # save relative path + filename of control
+    relative_path = filename.split("/")
+    relative_path = relative_path[1] + "/"+ relative_path[2]
+    np.savetxt(filename + "_filename.txt", np.array([relative_path]), fmt = "%s")
+
+
+
     gradient_final = sol["gradient_final"].data
 
     # Comparing canonical criticality measure and dual gap
