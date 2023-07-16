@@ -18,7 +18,9 @@ from mcrnnoc.stats import save_dict
 from mcrnnoc.misc import criticality_measure
 
 
-def simulate_reference(n, N):
+def simulate_reference(n, N, initial_control=None):
+
+    set_working_tape(Tape())
 
     random_problem = RandomBilinearProblem(n)
     num_rvs = random_problem.num_rvs
