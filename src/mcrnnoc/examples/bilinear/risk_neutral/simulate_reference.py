@@ -25,20 +25,8 @@ def simulate_reference(n, N):
     sampler = ReferenceTruncatedGaussianSampler(Nref=N, num_rvs=num_rvs)
     solver_options = SolverOptions()
     u = Function(random_problem.control_space)
-    h = Function(random_problem.control_space)
-
-    # u.interpolate(Expression("sin(2*pi*x[0])*sin(2*pi*x[1])", element=random_problem.control_space.mesh.element(), mpi_comm = random_problem.control_space.mesh.mpi_comm()))
-    mpi_comm = random_problem.mpi_comm
-    u_expr = Expression("sin(2*pi*x[0])*sin(2*pi*x[1])", degree=0, mpi_comm = mpi_comm)
-    u.interpolate(u_expr)
-
-    h_expr = Expression("sin(4*pi*x[0])*cos(pi*x[1])", degree=0, mpi_comm = mpi_comm)
-    h.interpolate(h_expr)
 
     rf = GlobalReducedSAAFunctional(random_problem, u, sampler, N)
-
-    print(taylor_test(rf, u, h))
-    rf(u)
 
     beta = random_problem.beta
     lb = random_problem.lb
@@ -46,7 +34,6 @@ def simulate_reference(n, N):
 
     riesz_map = RieszMap(random_problem.control_space)
     u_moola = moola.DolfinPrimalVector(u, riesz_map = riesz_map)
-    u_moola.zero()
 
     problem = MoolaOptimizationProblem(rf, memoize=0)
 

@@ -8,7 +8,7 @@
 #SBATCH -o output/Report-%x-%j.out                         # Combined output and error messages file
 #SBATCH --mail-type=ALL              # Mail preferences
 #SBATCH --mail-user=jmilz3@gatech.edu           # E-mail address for notifications
-#SBATCH --time=00:10:00
+#SBATCH --time=10:00:00
 
 cd $HOME/MCRNNOC/src/mcrnnoc/examples/bilinear/risk_neutral
 
@@ -24,7 +24,7 @@ date=$(date '+%d-%b-%Y-%H-%M-%S')
 
 source ../../simulation_data.sh
 n=$nref
-N="48"
+N="64"
 mpiexec -n 48 python simulate_reference.py $n $N $date
 
 
