@@ -17,6 +17,8 @@ class TruncatedGaussianSampler(object):
         self.rv_range = rv_range
         self.loc = loc
 
+        self.num_rvs = 1
+
     @property
     def seed(self):
         return self._seed
@@ -25,7 +27,7 @@ class TruncatedGaussianSampler(object):
         self._seed += 1
 
 
-    def sample(self, num_rvs):
+    def sample(self, sample_index):
 
         a, b = self.rv_range
         std = self.std
@@ -35,7 +37,7 @@ class TruncatedGaussianSampler(object):
         np.random.seed(self.seed)
 
         a_, b_ = (a - loc) / std, (b - loc) / std
-        Z = truncnorm.rvs(a_, b_, loc=loc, scale=std, size=num_rvs)
+        Z = truncnorm.rvs(a_, b_, loc=loc, scale=std, size=self.num_rvs)
 
         return Z
 
