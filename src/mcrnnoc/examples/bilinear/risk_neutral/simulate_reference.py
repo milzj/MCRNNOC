@@ -26,7 +26,11 @@ def simulate_reference(n, N, initial_control=None):
     num_rvs = random_problem.num_rvs
     sampler = ReferenceTruncatedGaussianSampler(Nref=N, num_rvs=num_rvs)
     solver_options = SolverOptions()
+
     u = Function(random_problem.control_space)
+
+    if initial_control != None:
+        u = project(initial_control, random_problem.control_space)
 
     rf = GlobalReducedSAAFunctional(random_problem, u, sampler, N)
 
@@ -65,6 +69,7 @@ if __name__ == "__main__":
         n = int(sys.argv[1])
         N = int(sys.argv[2])
         now = str(sys.argv[3])
+        u_opt = None
 
         outdir = "output/"
         if not os.path.exists(outdir):
@@ -80,6 +85,7 @@ if __name__ == "__main__":
         n = None
         N = None
         beta_filename = None
+        u_opt = None
 
 
     now = MPI.comm_world.bcast(now, root=0)
@@ -88,8 +94,13 @@ if __name__ == "__main__":
     n = MPI.comm_world.bcast(n, root=0)
     N = MPI.comm_world.bcast(N, root=0)
 
-    sol = simulate_reference(n, N)
-    u_opt = sol["control_final"].data
+    u_opt = MPI.comm_world.bcast(u_opt, root=0)
+
+    for n_ in [32, 64, n]:
+        sol = simulate_reference(n_, N, initial_control=u_opt)
+        u_opt = sol["control_final"].data
+        MPI.comm_world.barrier()
+
 
     if mpi_rank == 0:
         # save control
