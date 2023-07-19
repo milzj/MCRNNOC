@@ -1,9 +1,9 @@
 date=$(date '+%d-%b-%Y-%H-%M-%S')
 
 source ../../simulation_data.sh
-n=$nref
-N=$Nref
-mpiexec -n 4 python simulate_reference.py $n $N $date
+n=128
+N=128
+mpiexec -n 8 python simulate_reference.py $n $N $date
 
 
 
