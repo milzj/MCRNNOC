@@ -4,7 +4,7 @@ class OptionsRandomField(object):
 
             self._options = {
                 "num_addends": 30,
-                "len_scale": 1.0
+                "len_scale": 0.1
             }
 
 
