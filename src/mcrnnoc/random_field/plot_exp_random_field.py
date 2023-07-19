@@ -19,10 +19,11 @@ def plot_exp_random_field(outdir, n, num_addends):
     u = fenics.Function(U)
     exp_kappa = ExpRandomField(U, OptionsRandomField().options)
     num_rvs = exp_kappa.num_rvs
+    sampler.num_rvs = num_rvs
 
     for i in range(N):
 
-        sample = sampler.sample(num_rvs)
+        sample = sampler.sample(-1)
         exp_kappa_sample = exp_kappa.sample(sample)
 
         u.interpolate(exp_kappa_sample)
