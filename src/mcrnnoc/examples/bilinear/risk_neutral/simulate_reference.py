@@ -96,7 +96,10 @@ if __name__ == "__main__":
 
     u_opt = MPI.comm_world.bcast(u_opt, root=0)
 
+    print("Homotopy method")
+    print("")
     for n_ in [32, 64, n]:
+        print("Homotopy method with n = {}".format(n_))
         sol = simulate_reference(n_, N, initial_control=u_opt)
         u_opt = sol["control_final"].data
         MPI.comm_world.barrier()
