@@ -221,7 +221,7 @@ class SAAProblems(object):
                 else:
 
                     u_opt = None
-                    for n_ in [32, 64, n]:
+                    for n_ in [32, 64]:
                         print("Homotopy method with n = {}".format(n_))
                         sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n, N, initial_control=u_opt)
                         u_opt = sol["control_final"].data

@@ -8,7 +8,7 @@
 #SBATCH -o output/Report-%x-%j.out                         # Combined output and error messages file
 #SBATCH --mail-type=ALL              # Mail preferences
 #SBATCH --mail-user=jmilz3@gatech.edu           # E-mail address for notifications
-#SBATCH --time=00:10:00
+#SBATCH --time=08:00:00
 
 cd $HOME/MCRNNOC/src/mcrnnoc/examples/bilinear/risk_neutral
 
@@ -23,9 +23,11 @@ export PYTHONPATH=$HOME/MCRNNOC/src:${PYTHONPATH}
 date=$(date '+%d-%b-%Y-%H-%M-%S')
 
 source ../../simulation_data.sh
-n=$nref
+n="32"
 N=$Nref
-mpiexec -n 48 python simulate_experiment.py $n $N $date
+
+experiment="Monte_Carlo_Rate"
+mpiexec -n 2 python simulate_experiment.py $date $experiment $Nref
 
 
 
