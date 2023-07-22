@@ -83,7 +83,7 @@ class SAAProblems(object):
         self.Reps = Reps
 
 
-    def local_solve(self, sampler, n, number_samples):
+    def local_solve(self, sampler, n, number_samples, initial_control=None):
 
         set_working_tape(Tape())
         solver_options = SolverOptions()
@@ -92,6 +92,10 @@ class SAAProblems(object):
         sampler.num_rvs = random_problem.num_rvs
 
         u = Function(random_problem.control_space)
+
+        if initial_control != None:
+            u = project(initial_control, random_problem.control_space)
+
 
         rf = LocalReducedSAAFunctional(random_problem, u, sampler, number_samples, mpi_comm = MPI.comm_self)
 
@@ -215,10 +219,17 @@ class SAAProblems(object):
                     errors = abs(errors.mean())
                     sol = np.random.randn(3)
                 else:
-                    sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n, N)
+
+                    u_opt = None
+                    for n_ in [32, 64, n]:
+                        print("Homotopy method with n = {}".format(n_))
+                        sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n, N, initial_control=u_opt)
+                        u_opt = sol["control_final"].data
+
                     errors = self.criticality_measure(u_opt.vector()[:], grad_opt.vector()[:], n, Nref)
                     errors.append(dual_gap)
                     sol = u_opt.vector()[:]
+
 
                 E[e] = errors
                 S[e] = sol

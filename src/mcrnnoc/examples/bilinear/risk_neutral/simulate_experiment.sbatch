@@ -24,7 +24,7 @@ date=$(date '+%d-%b-%Y-%H-%M-%S')
 
 source ../../simulation_data.sh
 n=$nref
-N="48"
+N=$Nref
 mpiexec -n 48 python simulate_experiment.py $n $N $date
 
 

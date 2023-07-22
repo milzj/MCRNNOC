@@ -7,14 +7,14 @@ class Experiments(object):
     self._experiments = {}
 
     name = "Monte_Carlo_Rate"
-    N_vec = [2**i for i in range(3, 7+1)]
-    n_vec = 32*np.ones(len(N_vec), dtype=np.int64)
+    N_vec = [2**i for i in range(4, 8+1)]
+    n_vec = 128*np.ones(len(N_vec), dtype=np.int64)
 
     self.add_experiment(name, n_vec, N_vec)
 
     name = "Monte_Carlo_Rate_Test"
     N_vec = [2**i for i in range(3, 4+1)]
-    n_vec = 16*np.ones(len(N_vec), dtype=np.int64)
+    n_vec = 128*np.ones(len(N_vec), dtype=np.int64)
 
     self.add_experiment(name, n_vec, N_vec)
 
