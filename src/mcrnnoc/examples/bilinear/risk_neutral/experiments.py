@@ -14,7 +14,7 @@ class Experiments(object):
 
     name = "Monte_Carlo_Rate_Test"
     N_vec = [2**i for i in range(3, 4+1)]
-    n_vec = 128*np.ones(len(N_vec), dtype=np.int64)
+    n_vec = 64*np.ones(len(N_vec), dtype=np.int64)
 
     self.add_experiment(name, n_vec, N_vec)
 
