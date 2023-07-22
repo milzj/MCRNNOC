@@ -5,11 +5,14 @@ from dolfin_adjoint import *
 import moola
 import numpy as np
 
+from scipy.stats import qmc
+
 
 from mcrnnoc.examples.bilinear import RandomBilinearProblem
 from mcrnnoc.examples.solver_options import SolverOptions
 from mcrnnoc.sampler import ReferenceTruncatedGaussianSampler
 from mcrnnoc.sampler import TruncatedGaussianSampler
+from mcrnnoc.sampler import TruncatedGaussianSobolSampler
 
 from mcrnnoc.random_problem import LocalReducedSAAFunctional
 from mcrnnoc.random_problem import RieszMap
@@ -196,6 +199,7 @@ class SAAProblems(object):
         mpi_rank = self.mpi_rank
 
         sampler = TruncatedGaussianSampler()
+        sampler = TruncatedGaussianSobolSampler()
 
         Nref = int(self.Nref)
 
@@ -215,15 +219,19 @@ class SAAProblems(object):
                     warnings.warn("Simulation output is synthetic." +
                         " This is a verbose mode used to generate test data for plotting purposes.")
                     np.random.seed(seed)
-                    errors = np.random.randn(N)
-                    errors = abs(errors.mean())
+
+                    qmc_sampler = qmc.Sobol(d=1, scramble=True, seed=seed)
+                    m = int(np.log2(N))
+                    errors = qmc_sampler.random_base2(m=m)-0.5
+                    errors = abs(np.mean(errors))
                     sol = np.random.randn(3)
+
                 else:
 
                     u_opt = None
-                    for n_ in [32, 64]:
+                    for n_ in [32, n]:
                         print("Homotopy method with n = {}".format(n_))
-                        sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n, N, initial_control=u_opt)
+                        sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n_, N, initial_control=u_opt)
                         u_opt = sol["control_final"].data
 
                     errors = self.criticality_measure(u_opt.vector()[:], grad_opt.vector()[:], n, Nref)
