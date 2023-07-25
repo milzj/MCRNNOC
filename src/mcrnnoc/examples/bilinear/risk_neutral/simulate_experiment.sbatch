@@ -2,7 +2,7 @@
 
 #SBATCH -J SimRef                    # Job name
 #SBATCH --account=gts-jmilz3                     # charge account
-#SBATCH -N 48 --ntasks-per-node=1                  # number of nodes and cores per node
+#SBATCH -N 30 --ntasks-per-node=1                  # number of nodes and cores per node
 #SBATCH --mem-per-cpu=16gb                        # Memory per core
 #SBATCH -qinferno                               # QOS Name
 #SBATCH -o output/Report-%x-%j.out                         # Combined output and error messages file
@@ -23,11 +23,12 @@ export PYTHONPATH=$HOME/MCRNNOC/src:${PYTHONPATH}
 date=$(date '+%d-%b-%Y-%H-%M-%S')
 
 source ../../simulation_data.sh
-n="32"
 N=$Nref
+N="1024"
 
 experiment="Monte_Carlo_Rate"
-mpiexec -n 2 python simulate_experiment.py $date $experiment $Nref
+experiment="Monte_Carlo_Rate_Test"
+mpiexec -n 30 python simulate_experiment.py $date $experiment $Nref
 
 
 
