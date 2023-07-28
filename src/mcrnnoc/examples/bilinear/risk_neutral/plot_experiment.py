@@ -15,6 +15,7 @@ from matplotlib import pyplot as plt
 
 plt.rcParams.update({"legend.frameon": True, "legend.loc": "lower left"})
 plt.rcParams.update({"legend.columnspacing": 1.0})
+plt.rcParams.update({"font.size": 20.})
 
 def load_experiment(outdir):
 
@@ -83,6 +84,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
         empty_label = r"($n={}$)".format(n)
         set_ylim = False
         ndelete = 0
+        least_squares = "soft_l1"
         least_squares = "standard"
 
     else:
@@ -100,7 +102,10 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
         errors[e] = []
 
         for r in replications:
-            s = stats[r][e]
+            try:
+                s = stats[r][e][1]
+            except:
+                s = stats[r][e]
 
             errors[e].append(s)
 
@@ -157,7 +162,8 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
 
     # Plot mean of realizations
     ax.scatter(x_vec, y_vec, marker="s", color="black", label=label_mean_realizations)
-
+    print(x_vec)
+    print(y_vec)
     # Plot least squares fit
     if ndrop >= 0:
         X = x_vec[ndrop::]
@@ -176,7 +182,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
     plt.legend(by_label.values(), by_label.keys(), ncol=ncol, loc="best")
 
 
-    if experiment_name.find("Synthetic") != -1:
+    if experiment_name.find("Synthetic") != -1 and 1 == 2:
 
         ax.text(0.5, 0.5, "Test figure with synthetic data.", transform=ax.transAxes,
             fontsize=20, color='red', alpha=1.0,
@@ -205,9 +211,10 @@ if __name__ == "__main__":
     outdir = sys.argv[1]
     try:
         ndrop = int(sys.argv[2])
-        tikhonov = int(sys.argv[3])
+        tikhonov = -1
     except:
         ndrop = 0
         tikhonov = -1
 
+    print(ndrop)
     plot_experiment(outdir, ndrop=ndrop, tikhonov=tikhonov)
