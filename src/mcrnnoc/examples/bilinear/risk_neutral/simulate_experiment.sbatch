@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J SimRef                    # Job name
+#SBATCH -J SimExp8k-mem1-RM-sig075                    # Job name
 #SBATCH --account=gts-jmilz3                     # charge account
 #SBATCH -N 30 --ntasks-per-node=1                  # number of nodes and cores per node
 #SBATCH --mem-per-cpu=16gb                        # Memory per core
@@ -23,11 +23,9 @@ export PYTHONPATH=$HOME/MCRNNOC/src:${PYTHONPATH}
 date=$(date '+%d-%b-%Y-%H-%M-%S')
 
 source ../../simulation_data.sh
-N=$Nref
-N="1024"
 
-experiment="Monte_Carlo_Rate"
 experiment="Monte_Carlo_Rate_Test"
+experiment="Monte_Carlo_Rate"
 mpiexec -n 30 python simulate_experiment.py $date $experiment $Nref
 
 

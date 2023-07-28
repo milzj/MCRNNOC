@@ -7,7 +7,7 @@ class Experiments(object):
     self._experiments = {}
 
     name = "Monte_Carlo_Rate"
-    N_vec = [2**i for i in range(4, 8+1)]
+    N_vec = [2**i for i in range(4, 7+1)]
     n_vec = 64*np.ones(len(N_vec), dtype=np.int64)
 
     self.add_experiment(name, n_vec, N_vec)

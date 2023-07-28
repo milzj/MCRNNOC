@@ -114,7 +114,7 @@ class SAAProblems(object):
         riesz_map = RieszMap(random_problem.control_space)
         u_moola = moola.DolfinPrimalVector(u, riesz_map = riesz_map)
 
-        problem = MoolaOptimizationProblem(rf, memoize=0)
+        problem = MoolaOptimizationProblem(rf, memoize=1)
 
         scaled_L1_norm = ScaledL1Norm(random_problem.control_space,beta)
         box_constraints = BoxConstraints(random_problem.control_space, lb, ub)
@@ -153,6 +153,7 @@ class SAAProblems(object):
 
         riesz_map = RieszMap(random_problem.control_space)
         v_moola = moola.DolfinPrimalVector(u, riesz_map = riesz_map)
+        #v_moola = moola.DolfinPrimalVector(u)
 
         problem = MoolaOptimizationProblem(rf, memoize=0)
         obj = problem.obj
@@ -250,6 +251,7 @@ class SAAProblems(object):
                     errors = self.criticality_measure(u_opt.vector()[:], grad_opt.vector()[:], n, Nref)
                     errors.append(dual_gap)
                     sol = u_opt.vector()[:]
+                    print("errors", errors)
 
 
                 E[e] = errors
