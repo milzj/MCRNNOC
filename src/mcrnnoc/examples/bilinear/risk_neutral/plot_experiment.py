@@ -103,7 +103,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
 
         for r in replications:
             try:
-                s = stats[r][e][1]
+                s = stats[r][e][0]
             except:
                 s = stats[r][e]
 
