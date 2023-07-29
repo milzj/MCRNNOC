@@ -2,11 +2,11 @@ import numpy as np
 from scipy.stats import truncnorm
 from scipy.stats import qmc
 
-from .options_sampler import OptionsSampler
+from mcrnnoc.sampler.options_sampler import OptionsSampler
 
 class ReferenceTruncatedGaussianSampler(object):
 
-    def __init__(self, num_rvs=3, Nref=4):
+    def __init__(self, num_rvs=3, Nref=4, scramble=False):
 
         if not ((Nref & (Nref-1) == 0) and Nref != 0):
             raise ValueError("Nref is not 2**m for some natural number m.")
@@ -15,6 +15,8 @@ class ReferenceTruncatedGaussianSampler(object):
         std = options_sampler["std"]
         rv_range = options_sampler["rv_range"]
         loc = options_sampler["loc"]
+
+        self.scramble = scramble
 
         self.rv_range = rv_range
         self.std = std
@@ -46,11 +48,14 @@ class ReferenceTruncatedGaussianSampler(object):
         a, b = self.rv_range
         loc = self.loc
 
-        sampler = qmc.Sobol(d=d, scramble=False)
-        q = sampler.random_base2(m=m)
-        q = q + 1.0/(2*2**m)
-
-        assert np.all(q < 1.0), "Invalid shift of Sobol' sequence."
+        if self.scramble == False:
+            sampler = qmc.Sobol(d=d, scramble=False)
+            q = sampler.random_base2(m=m)
+            q = q + 1.0/(2*2**m)
+            assert np.all(q < 1.0), "Invalid shift of Sobol' sequence."
+        else:
+            sampler = qmc.Sobol(d=d, scramble=True, seed=1234)
+            q = sampler.random_base2(m=m)
 
         a_, b_ = (a - loc) / std, (b - loc) / std
         s = truncnorm.ppf(q, a_, b_, loc=loc, scale=std)
@@ -64,6 +69,12 @@ class ReferenceTruncatedGaussianSampler(object):
 if __name__ == "__main__":
 
     sampler = ReferenceTruncatedGaussianSampler(num_rvs=3, Nref=4)
+    print(sampler.sample(0))
+    print(sampler.sample(1))
+    print(sampler.sample(2))
+    print(sampler.sample(3))
+
+    sampler = ReferenceTruncatedGaussianSampler(num_rvs=3, Nref=4, scramble=True)
     print(sampler.sample(0))
     print(sampler.sample(1))
     print(sampler.sample(2))
