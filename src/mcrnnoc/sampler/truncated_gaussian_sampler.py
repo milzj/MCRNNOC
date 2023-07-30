@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.stats import truncnorm
 
-from .options_sampler import OptionsSampler
+from mcrnnoc.sampler.options_sampler import OptionsSampler
 
 class TruncatedGaussianSampler(object):
 
@@ -23,9 +23,12 @@ class TruncatedGaussianSampler(object):
     def seed(self):
         return self._seed
 
+    @seed.setter
+    def seed(self, seed):
+        self._seed = seed
+
     def bump_seed(self):
         self._seed += 1
-
 
     def sample(self, sample_index):
 
