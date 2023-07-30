@@ -2,7 +2,7 @@
 
 rm -rf exp_random_field
 
-python plot_exp_random_field.py
+time python plot_exp_random_field.py 2>&1 | tee exp_random_field.txt
 
 cd exp_random_field_plots
 
