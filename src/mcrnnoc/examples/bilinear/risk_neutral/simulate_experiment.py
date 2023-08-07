@@ -204,7 +204,6 @@ class SAAProblems(object):
         LocalSols = {}
         mpi_rank = self.mpi_rank
 
-        sampler = TruncatedGaussianSobolSampler()
         sampler = TruncatedGaussianSampler()
 
         Nref = int(self.Nref)
