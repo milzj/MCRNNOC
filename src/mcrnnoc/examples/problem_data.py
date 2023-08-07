@@ -6,7 +6,7 @@ class ProblemData(object):
     def __init__(self, mpi_comm):
 
         self._yd = Expression("sin(2*pi*x[0])*sin(2*pi*x[1])*exp(2.0*x[0])/2.0", degree = 0, mpi_comm=mpi_comm)
-        self._f = Expression("1+5.0*sin(2*pi*x[0]-x[1])*cos(2*pi*x[1])", degree = 0, mpi_comm=mpi_comm)
+        self._f = Expression("2.0+5.0*sin(2*pi*x[0]-x[1])*cos(2*pi*x[1])", degree = 0, mpi_comm=mpi_comm)
         self._lb = Constant(-1.0)
         self._ub = Constant(1.0)
         self._g = Constant(1.0)
