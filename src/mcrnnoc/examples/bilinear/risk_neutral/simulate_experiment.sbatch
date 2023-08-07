@@ -2,7 +2,7 @@
 
 #SBATCH -J SimExp8k-mem1-RM-sig075                    # Job name
 #SBATCH --account=gts-jmilz3                     # charge account
-#SBATCH -N 30 --ntasks-per-node=1                  # number of nodes and cores per node
+#SBATCH -N 48 --ntasks-per-node=1                  # number of nodes and cores per node
 #SBATCH --mem-per-cpu=16gb                        # Memory per core
 #SBATCH -qinferno                               # QOS Name
 #SBATCH -o output/Report-%x-%j.out                         # Combined output and error messages file
@@ -26,7 +26,7 @@ source ../../simulation_data.sh
 
 experiment="Monte_Carlo_Rate_Test"
 experiment="Monte_Carlo_Rate"
-mpiexec -n 30 python simulate_experiment.py $date $experiment $Nref
+mpiexec -n 48 python simulate_experiment.py $date $experiment $Nref
 
 
 
