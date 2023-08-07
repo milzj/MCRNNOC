@@ -131,7 +131,7 @@ class SAAProblems(object):
 
         return sol, sol["dual_gap"], sol["control_final"].data, sol["gradient_final"].data
 
-    def criticality_measure(self, control_vec, gradient_vec, n, Nref):
+    def criticality_measure(self, control_vec, n, Nref, gradient_vec=None):
         """Evaluate reference gap function and criticality measure without parallelization."""
 
         set_working_tape(Tape())
@@ -190,10 +190,11 @@ class SAAProblems(object):
         criticality_measures.append(errornorm(u, prox_grad, degree_rise = 0))
 
         # crit measure
-        gg_vec = prox_box_l1(control_vec-gradient_vec, box_constraints.lb, box_constraints.ub, beta)
-        prox_gradient = Function(random_problem.control_space)
-        prox_gradient.vector()[:] = gg_vec
-        criticality_measures.append(errornorm(u, prox_gradient, degree_rise = 0))
+        if gradient_vec != None:
+            gg_vec = prox_box_l1(control_vec-gradient_vec, box_constraints.lb, box_constraints.ub, beta)
+            prox_gradient = Function(random_problem.control_space)
+            prox_gradient.vector()[:] = gg_vec
+            criticality_measures.append(errornorm(u, prox_gradient, degree_rise = 0))
 
         return criticality_measures
 
@@ -233,24 +234,28 @@ class SAAProblems(object):
 
                 else:
 
-                    u_opt = None
-                    for n_ in [32, n]:
-                        print("Homotopy method with n = {}".format(n_))
-                        print("r, n, N", r, n_, n, N)
-                        sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n_, N, initial_control=u_opt)
-                        sampler._seed = seed
-                        cm_value = criticality_measure(u_opt, grad_opt, -1.0 ,1.0, 1e-3)
-                        print("sqrt(dual_gap)={}".format(sqrt(dual_gap)))
-                        print("cm_value={}".format(cm_value))
+                    if self.experiment_name.find("Fixed_Control") != -1:
+
+                        u_opt = np.ones(2*n**2)
+
+                        errors = self.criticality_measure(u_opt, n, Nref)
+                        sol = u_opt
+
+                    else:
 
 
-                    print("sqrt(dual_gap)={}".format(sqrt(dual_gap)))
-                    print("cm_value={}".format(cm_value))
-    
-                    errors = self.criticality_measure(u_opt.vector()[:], grad_opt.vector()[:], n, Nref)
-                    errors.append(dual_gap)
-                    sol = u_opt.vector()[:]
-                    print("errors", errors)
+                        u_opt = None
+                        for n_ in [32, n]:
+                            print("Homotopy method with n = {}".format(n_))
+                            print("r, n, N", r, n_, n, N)
+                            sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n_, N, initial_control=u_opt)
+                            sampler._seed = seed
+
+                        u_opt = u_opt.vector()[:]
+
+                        errors = self.criticality_measure(u_opt, n, Nref, gradient_vec = grad_opt.vector()[:])
+                        errors.append(dual_gap)
+                        sol = u_opt.vector()[:]
 
 
                 E[e] = errors

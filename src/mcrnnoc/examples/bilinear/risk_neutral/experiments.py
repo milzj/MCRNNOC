@@ -32,6 +32,7 @@ class Experiments(object):
 
     self._experiments[name] = {key: items}
     self._experiments[name + "_Synthetic"] = {key: items}
+    self._experiments[name + "_Fixed_Control"] = {key: items}
 
 
   def __call__(self, experiment_name):
