@@ -32,7 +32,7 @@ import warnings
 class SAAProblems(object):
 
 
-    def __init__(self, date=-1, experiment=None, Nref=-1, num_reps=30, experiment_name=None):
+    def __init__(self, date=-1, experiment=None, Nref=-1, num_reps=48, experiment_name=None):
 
         self.date = date
         self.experiment = experiment
