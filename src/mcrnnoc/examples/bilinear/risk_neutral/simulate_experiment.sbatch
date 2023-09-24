@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J SimExp8k-mem1-RM-sig075                    # Job name
+#SBATCH -J SimExp-Fixed-Control                    # Job name
 #SBATCH --account=gts-jmilz3                     # charge account
 #SBATCH -N 48 --ntasks-per-node=1                  # number of nodes and cores per node
 #SBATCH --mem-per-cpu=16gb                        # Memory per core
@@ -26,6 +26,7 @@ source ../../simulation_data.sh
 
 experiment="Monte_Carlo_Rate_Test"
 experiment="Monte_Carlo_Rate"
+experiment="Monte_Carlo_Rate_Fixed_Control"
 mpiexec -n 48 python simulate_experiment.py $date $experiment $Nref
 
 

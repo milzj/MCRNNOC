@@ -12,6 +12,12 @@ class Experiments(object):
 
     self.add_experiment(name, n_vec, N_vec)
 
+    name = "Monte_Carlo_Rate_Fixed_Control"
+    N_vec = [2**i for i in range(6, 12+1)]
+    n_vec = 64*np.ones(len(N_vec), dtype=np.int64)
+
+    self.add_experiment(name, n_vec, N_vec)
+
     name = "Monte_Carlo_Rate_Test"
     N_vec = [2**i for i in range(3, 4+1)]
     n_vec = 64*np.ones(len(N_vec), dtype=np.int64)
@@ -32,7 +38,6 @@ class Experiments(object):
 
     self._experiments[name] = {key: items}
     self._experiments[name + "_Synthetic"] = {key: items}
-    self._experiments[name + "_Fixed_Control"] = {key: items}
 
 
   def __call__(self, experiment_name):

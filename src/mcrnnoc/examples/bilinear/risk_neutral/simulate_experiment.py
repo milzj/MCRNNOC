@@ -49,7 +49,7 @@ class SAAProblems(object):
 
         random_problem = RandomBilinearProblem(8)
         num_rvs = random_problem.num_rvs
-        self.reference_sampler = ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=True)
+        self.reference_sampler = ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=False)
 
     def seeds(self):
 
@@ -131,7 +131,7 @@ class SAAProblems(object):
 
         return sol, sol["dual_gap"], sol["control_final"].data, sol["gradient_final"].data
 
-    def criticality_measure(self, control_vec, n, Nref, gradient_vec=None):
+    def criticality_measure(self, control_vec, n, Nref, gradient_vec=None, sampler=None):
         """Evaluate reference gap function and criticality measure without parallelization."""
 
         set_working_tape(Tape())
@@ -139,10 +139,13 @@ class SAAProblems(object):
 
         random_problem = RandomBilinearProblem(n)
 
-        sampler = self.reference_sampler
-
         u = Function(random_problem.control_space)
         u.vector()[:] = control_vec
+
+        if sampler == None:
+            sampler = self.reference_sampler
+        else:
+            sampler.num_rvs = random_problem.num_rvs
 
         rf = LocalReducedSAAFunctional(random_problem, u, sampler, Nref, mpi_comm = MPI.comm_self)
         print("Nref", Nref)
@@ -153,7 +156,6 @@ class SAAProblems(object):
 
         riesz_map = RieszMap(random_problem.control_space)
         v_moola = moola.DolfinPrimalVector(u, riesz_map = riesz_map)
-        #v_moola = moola.DolfinPrimalVector(u)
 
         problem = MoolaOptimizationProblem(rf, memoize=0)
         obj = problem.obj
@@ -209,6 +211,8 @@ class SAAProblems(object):
 
         Nref = int(self.Nref)
 
+        indicator_fixed_control = -1
+
         for r in self.Reps[mpi_rank]:
             E = {}
             S = {}
@@ -236,13 +240,23 @@ class SAAProblems(object):
 
                     if self.experiment_name.find("Fixed_Control") != -1:
 
-                        u_opt = np.ones(2*n**2)
+                        random_problem = RandomBilinearProblem(n)
+                        U = random_problem.control_space
+                        u_opt = Expression("sin(4*pi*x[0])*sin(4*pi*x[1])", degree=0)
+                        u_opt = project(u_opt, U)
+                        u_opt = u_opt.vector()[:]
 
-                        errors = self.criticality_measure(u_opt, n, Nref)
+                        errors = self.criticality_measure(u_opt, n, N, sampler=sampler)
+                        if indicator_fixed_control < 0:
+                            errors_Nref_fixed_control = self.criticality_measure(u_opt, n, Nref)
+                        else:
+                            indicator_fixed_control = 1
+
+                        errors = abs(errors[0]-errors_Nref_fixed_control[0])
+
                         sol = u_opt
 
                     else:
-
 
                         u_opt = None
                         for n_ in [32, n]:
