@@ -89,6 +89,37 @@ class SAAProblems(object):
         self.Reps = Reps
 
 
+    def saa_gradient(self, sampler, n, number_samples, initial_control=None):
+
+        set_working_tape(Tape())
+        solver_options = SolverOptions()
+
+        random_problem = RandomBilinearProblem(n)
+        sampler.num_rvs = random_problem.num_rvs
+
+        u = Function(random_problem.control_space)
+
+        if initial_control != None:
+            u = project(initial_control, random_problem.control_space)
+
+        rf = LocalReducedSAAFunctional(random_problem, u, sampler, number_samples, mpi_comm = MPI.comm_self)
+
+        assert rf.mpi_size == 1
+
+        riesz_map = RieszMap(random_problem.control_space)
+        u_moola = moola.DolfinPrimalVector(u, riesz_map = riesz_map)
+
+        riesz_map = RieszMap(random_problem.control_space)
+        u_moola = moola.DolfinPrimalVector(u, riesz_map = riesz_map)
+        problem = MoolaOptimizationProblem(rf, memoize=1)
+
+        obj = problem.obj
+        obj(u_moola)
+        derivative = obj.derivative(u_moola)
+        gradient = derivative.primal()
+
+        return gradient.data
+
     def local_solve(self, sampler, n, number_samples, initial_control=None):
 
         set_working_tape(Tape())
@@ -131,6 +162,7 @@ class SAAProblems(object):
 
         return sol, sol["dual_gap"], sol["control_final"].data, sol["gradient_final"].data
 
+
     def criticality_measure(self, control_vec, n, Nref, gradient_vec=None, sampler=None):
         """Evaluate reference gap function and criticality measure without parallelization."""
 
@@ -148,7 +180,6 @@ class SAAProblems(object):
             sampler.num_rvs = random_problem.num_rvs
 
         rf = LocalReducedSAAFunctional(random_problem, u, sampler, Nref, mpi_comm = MPI.comm_self)
-        print("Nref", Nref)
 
         beta = random_problem.beta
         lb = random_problem.lb
@@ -200,6 +231,40 @@ class SAAProblems(object):
 
         return criticality_measures
 
+    def saa_gradient_error(self, control_vec, n, Nref, gradient_vec=None, sampler=None):
+        """Evaluate reference gap function and criticality measure without parallelization."""
+
+        set_working_tape(Tape())
+        solver_options = SolverOptions()
+
+        random_problem = RandomBilinearProblem(n)
+
+        u = Function(random_problem.control_space)
+        u.vector()[:] = control_vec
+
+        if sampler == None:
+            sampler = self.reference_sampler
+        else:
+            sampler.num_rvs = random_problem.num_rvs
+
+        rf = LocalReducedSAAFunctional(random_problem, u, sampler, Nref, mpi_comm = MPI.comm_self)
+        print("Nref", Nref)
+
+        riesz_map = RieszMap(random_problem.control_space)
+        u_moola = moola.DolfinPrimalVector(u, riesz_map = riesz_map)
+
+        problem = MoolaOptimizationProblem(rf, memoize=0)
+        obj = problem.obj
+        obj(u_moola)
+
+        deriv = obj.derivative(u_moola)
+        grad = deriv.primal().data
+
+        saa_grad = Function(random_problem.control_space)
+        saa_grad.vector()[:] = gradient_vec
+
+        return errornorm(grad, saa_grad, degree_rise = 0)
+
 
     def simulate_mpi(self):
 
@@ -216,6 +281,7 @@ class SAAProblems(object):
         for r in self.Reps[mpi_rank]:
             E = {}
             S = {}
+            print(self.experiment_name)
 
             for e in self.experiment[("n_vec", "N_vec")]:
                 n, N = e
@@ -240,21 +306,21 @@ class SAAProblems(object):
 
                     if self.experiment_name.find("Fixed_Control") != -1:
 
+                        set_working_tape(Tape())
+                
                         random_problem = RandomBilinearProblem(n)
                         U = random_problem.control_space
-                        u_opt = Expression("sin(4*pi*x[0])*sin(4*pi*x[1])", degree=0)
+                        u_opt = Expression("sin(4*pi*x[0])*sin(4*pi*x[1])", degree=0, mpi_comm=MPI.comm_self)
+                        u_opt = Expression('x[0] < 0.5 ? -1.0 : 1.0', degree=0, mpi_comm=MPI.comm_self)
+                        saa_gradient = self.saa_gradient(sampler, n, N, initial_control=u_opt)
+
                         u_opt = project(u_opt, U)
                         u_opt = u_opt.vector()[:]
 
-                        errors = self.criticality_measure(u_opt, n, N, sampler=sampler)
-                        if indicator_fixed_control < 0:
-                            errors_Nref_fixed_control = self.criticality_measure(u_opt, n, Nref)
-                        else:
-                            indicator_fixed_control = 1
-
-                        errors = abs(errors[0]-errors_Nref_fixed_control[0])
+                        errors = self.saa_gradient_error(u_opt, n, Nref, gradient_vec = saa_gradient.vector()[:])
 
                         sol = u_opt
+                        sampler._seed = seed
 
                     else:
 
