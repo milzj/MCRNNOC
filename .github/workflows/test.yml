@@ -36,7 +36,8 @@ jobs:
           conda install pytest
           pip install -e .
           pytest
-
+      - uses: mpi4py/setup-mpi@v1
       - name: Parallel Test with pytest
         run: |
-          mpirun -np 4 python3 -m pytest tests/test_random_problem/test_split_samples.py
+          mpiexec -n 4 python3 -m pytest tests/test_random_problem/test_split_samples.py
+
