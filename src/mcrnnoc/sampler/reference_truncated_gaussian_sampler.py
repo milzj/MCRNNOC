@@ -54,7 +54,7 @@ class ReferenceTruncatedGaussianSampler(object):
             q = q + 1.0/(2*2**m)
             assert np.all(q < 1.0), "Invalid shift of Sobol' sequence."
         else:
-            sampler = qmc.Sobol(d=d, scramble=True, seed=1234)
+            sampler = qmc.Sobol(d=d, scramble=True, seed=12345)
             q = sampler.random_base2(m=m)
 
         a_, b_ = (a - loc) / std, (b - loc) / std
