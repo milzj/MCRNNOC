@@ -13,7 +13,7 @@ class Experiments(object):
     self.add_experiment(name, n_vec, N_vec)
 
     name = "Monte_Carlo_Rate_Fixed_Control"
-    N_vec = [2**i for i in range(6, 10+1)]
+    N_vec = [2**i for i in range(5+1, 10+2)]
     n_vec = 32*np.ones(len(N_vec), dtype=np.int64)
 
     self.add_experiment(name, n_vec, N_vec)

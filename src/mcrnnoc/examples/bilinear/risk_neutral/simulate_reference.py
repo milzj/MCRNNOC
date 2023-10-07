@@ -24,7 +24,7 @@ def simulate_reference(n, N, initial_control=None):
 
     random_problem = RandomBilinearProblem(n)
     num_rvs = random_problem.num_rvs
-    sampler = ReferenceTruncatedGaussianSampler(Nref=N, num_rvs=num_rvs)
+    sampler = ReferenceTruncatedGaussianSampler(Nref=N, num_rvs=num_rvs, scramble=False)
     solver_options = SolverOptions()
 
     u = Function(random_problem.control_space)
