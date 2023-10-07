@@ -39,4 +39,4 @@ jobs:
 
       - name: Parallel Test with pytest
         run: |
-          mpirun -np 4 python3 -m pytest tests/test_random_problem/test_split_samples.py
+          mpirun -oversubscribe -np 4 python3 -m pytest tests/test_random_problem/test_split_samples.py
