@@ -222,7 +222,7 @@ class SAAProblems(object):
         criticality_measures.append(errornorm(u, prox_grad, degree_rise = 0))
 
         # crit measure
-        if gradient_vec != None:
+        if gradient_vec.any() != None:
             gg_vec = prox_box_l1(control_vec-gradient_vec, box_constraints.lb, box_constraints.ub, beta)
             prox_gradient = Function(random_problem.control_space)
             prox_gradient.vector()[:] = gg_vec
@@ -333,7 +333,7 @@ class SAAProblems(object):
                     else:
 
                         u_opt = None
-                        for n_ in [32, n]:
+                        for n_ in [2**i for i in range(5, int(np.log2(n)+1))]:
                             print("Homotopy method with n = {}".format(n_))
                             print("r, n, N", r, n_, n, N)
                             sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n_, N, initial_control=u_opt)
@@ -343,7 +343,7 @@ class SAAProblems(object):
 
                         errors = self.criticality_measure(u_opt, n, Nref, gradient_vec = grad_opt.vector()[:])
                         errors.append(dual_gap)
-                        sol = u_opt.vector()[:]
+                        sol = u_opt
 
 
                 E[e] = errors
