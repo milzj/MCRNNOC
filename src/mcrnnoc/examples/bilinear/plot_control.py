@@ -1,7 +1,12 @@
 from dolfin import *
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import cm
+from matplotlib.colors import LinearSegmentedColormap
+
+
+cmap_blue_orange = LinearSegmentedColormap.from_list(name="cmap_BlueOrange",
+                                          colors =["tab:blue", "lightgrey", "tab:orange"],
+                                            N=256)
 
 from mcrnnoc.stats import figure_style
 
@@ -25,7 +30,7 @@ U = FunctionSpace(mesh, "DG", 0)
 u = Function(U)
 u.vector()[:] = u_vec
 
-p = plot(u, wireframe=False, cmap=cm.coolwarm)
+p = plot(u, wireframe=False, cmap=cmap_blue_orange)
 if colorbar == 1:
   # https://stackoverflow.com/questions/18195758/set-matplotlib-colorbar-size-to-match-graph
   plt.colorbar(p, fraction=0.046, pad=0.04)
