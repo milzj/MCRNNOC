@@ -8,11 +8,19 @@ from options_random_field import OptionsRandomField
 
 import matplotlib.pyplot as plt
 
+from matplotlib.colors import LinearSegmentedColormap
+
+
+cmap_blue_orange = LinearSegmentedColormap.from_list(name="cmap_BlueOrange",
+                                          colors =["tab:blue", "lightgrey", "tab:orange"],
+                                            N=256)
+
+
 import numpy as np
 
 def plot_exp_random_field(outdir, n, num_addends):
 
-    N = 2**14
+    N = 2**12
 
     mesh = fenics.UnitSquareMesh(n,n)
     U = fenics.FunctionSpace(mesh, "DG", 0)
@@ -63,7 +71,7 @@ def plot_exp_random_field(outdir, n, num_addends):
     for i in range(Nplot):
         u = exp_kappa_samples[i]
 
-        c = fenics.plot(u)
+        c = fenics.plot(u, cmap=cmap_blue_orange)
         plt.colorbar(c)
 
         plt.title(r"Sample of $\kappa$ $(i={})$".format(i))
@@ -77,7 +85,7 @@ if __name__ == "__main__":
     import sys, os
 
     n = 128
-    num_addends = 20
+    num_addends = 10
 
     outdir = "exp_random_field_plots/"
     if not os.path.exists(outdir):

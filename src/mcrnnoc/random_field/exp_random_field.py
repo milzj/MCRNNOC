@@ -21,6 +21,12 @@ class ExpRandomField(object):
 
     (3) Code should not be run in parallel.
 
+    (4) function space must consist of functions defined on (0,1)^2.
+        Note: Example 7.56 considers eigenfunctions defined on
+         (-a_1, a_1) x (-a_2, a_2). We transform (0,1)^2 to
+        (-1/2,1/2)^2 using the mapping y to y-1/2.
+
+
     References:
     ----------
 
