@@ -55,7 +55,7 @@ class SAAProblems(object):
         Seeds = {}
         num_reps = self.num_reps
 
-        seed = self.Nref
+        seed = 2*self.Nref
 
         for r in range(1, 1+num_reps):
 
@@ -335,7 +335,7 @@ class SAAProblems(object):
                         u_opt = None
                         for n_ in [2**i for i in range(5, int(np.log2(n)+1))]:
                             print("Homotopy method with n = {}".format(n_))
-                            print("r, n, N", r, n_, n, N)
+                            print("r, n_, n, N", r, n_, n, N)
                             sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n_, N, initial_control=u_opt)
                             sampler._seed = seed
 

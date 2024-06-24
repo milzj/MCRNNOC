@@ -58,7 +58,9 @@ class RandomBilinearProblem(RandomProblem):
         bcs = self.bcs
         kappa = self.kappa.sample(sample)
 
-        F = (kappa*inner(grad(y), grad(v)) + g*y*u*v - f*v) * dx
+        #F = (kappa*inner(grad(y), grad(v)) + g*y*u*v - f*v) * dx
+        # F = (kappa*inner(grad(y), grad(v)) + g*y**3*v - f*v - u*v) * dx
+        F = (kappa*inner(grad(y), grad(v)) - Constant(sample[0])*u*v) * dx
         solve(F == 0, y, bcs=self.bcs)
 
 

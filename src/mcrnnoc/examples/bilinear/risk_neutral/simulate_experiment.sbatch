@@ -25,8 +25,8 @@ date=$(date '+%d-%b-%Y-%H-%M-%S')
 source ../../simulation_data.sh
 
 experiment="Monte_Carlo_Rate_Test"
-experiment="Monte_Carlo_Rate"
 experiment="Monte_Carlo_Rate_Fixed_Control"
+experiment="Monte_Carlo_Rate"
 mpiexec -n 48 python simulate_experiment.py $date $experiment $Nref
 
 
