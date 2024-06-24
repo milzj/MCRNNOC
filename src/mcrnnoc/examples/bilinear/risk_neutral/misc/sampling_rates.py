@@ -4,7 +4,6 @@ This file is used to empirically verify the Monte Carlo convergence rate
 for the gap function evaluated the the empirical sample mean. The gap
 function corresponds to the optimization problem
 
-min (E[xi], u) + u^2/2 subject to u^2 <= 1 with E[xi] = 0
 
 min E[(xi u -1)^2] subject to u^2 <= 1 with E[xi] = 0 and E[xi^2] = 1
 https://www.wolframalpha.com/input?i=minimize+a%5E2+x%5E2+-+2+b+x+%2B+1+
@@ -53,17 +52,14 @@ for distribution in distributions:
     errors[distribution][r] = {}
     for N in N_vec:
       Z = distribution(N)
-#      errors[distribution][r][N] = np.abs(Z.mean()**2)
-      if abs(Z.mean()) <= 1.0:
-         uN = Z.mean()
-      else:
-         uN = Z.mean()/abs(Z.mean())
-#      errors[distribution][r][N] = uN**2 + abs(uN)
+
       uN = Z.mean() / np.mean(Z**2)
       if abs(uN) > 1:
         uN = -1.0
-#      errors[distribution][r][N] = abs(2*uN)
-      errors[distribution][r][N] = 2*uN*uN + abs(2*uN)
+      if abs(uN) <  - 1:
+        uN = 1.0
+
+      errors[distribution][r][N] = -2*uN**2 + abs(2*uN)
 
 # Postprocessing
 stats = {}
