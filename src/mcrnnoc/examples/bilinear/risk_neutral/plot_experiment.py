@@ -123,6 +123,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
     y_vec = [errors_stats[e]["mean"] for e in experiments]
 
     assert len(x_vec) == len(y_vec)
+    print(y_vec)
     if least_squares == "standard" and ndrop >= 0:
         ## least squares
         X = np.ones((len(x_vec[ndrop::]), 2)); X[:, 1] = np.log(x_vec[ndrop::]) # design matrix
@@ -162,8 +163,6 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
 
     # Plot mean of realizations
     ax.scatter(x_vec, y_vec, marker="s", color="black", label=label_mean_realizations)
-    print(x_vec)
-    print(y_vec)
     # Plot least squares fit
     if ndrop >= 0:
         X = x_vec[ndrop::]
