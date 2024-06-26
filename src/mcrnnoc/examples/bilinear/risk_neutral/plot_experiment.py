@@ -1,7 +1,4 @@
 
-# source 
-
-
 from mcrnnoc.stats import load_dict, compute_random_errors
 from mcrnnoc.stats import lsqs_label
 from mcrnnoc.stats import figure_style
@@ -9,7 +6,6 @@ from mcrnnoc.stats import figure_style
 import warnings
 import numpy as np
 import itertools
-
 
 from matplotlib import pyplot as plt
 

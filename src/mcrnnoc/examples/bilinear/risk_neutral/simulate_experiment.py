@@ -7,7 +7,6 @@ import numpy as np
 
 from scipy.stats import qmc
 
-
 from mcrnnoc.examples.bilinear import RandomBilinearProblem
 from mcrnnoc.examples.solver_options import SolverOptions
 from mcrnnoc.sampler import ReferenceTruncatedGaussianSampler
@@ -43,38 +42,11 @@ class SAAProblems(object):
         self.mpi_rank = MPI.comm_world.Get_rank()
         self.LocalStats = {}
 
-        self.seeds()
         self.divide_simulations()
 
         random_problem = RandomBilinearProblem(8)
         num_rvs = random_problem.num_rvs
         self.reference_sampler = ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=False)
-
-    def seeds(self):
-
-        Seeds = {}
-        num_reps = self.num_reps
-
-        seed = self.Nref
-
-        for r in range(1, 1+num_reps):
-
-            Seeds[r] = {}
-
-            for e in self.experiment[("n_vec", "N_vec")]:
-                n, N = e
-
-                seed += 1*N+1
-                Seeds[r][e] = seed
-
-        if np.__version__ == '1.12.1':
-            period = 2**32-1
-        else:
-            period = 2**32-1
-
-        assert seed <= period, "Period of random number generator (might) too small."
-
-        self.Seeds = Seeds
 
     def divide_simulations(self):
 
@@ -222,7 +194,7 @@ class SAAProblems(object):
         criticality_measures.append(errornorm(u, prox_grad, degree_rise = 0))
 
         # crit measure
-        if gradient_vec != None:
+        if gradient_vec.any() != None:
             gg_vec = prox_box_l1(control_vec-gradient_vec, box_constraints.lb, box_constraints.ub, beta)
             prox_gradient = Function(random_problem.control_space)
             prox_gradient.vector()[:] = gg_vec
@@ -238,8 +210,7 @@ class SAAProblems(object):
 
         if reference_gradient_vec.any() == None:    
             solver_options = SolverOptions()
-    
-    
+        
             u = Function(random_problem.control_space)
             u.vector()[:] = control_vec
     
@@ -279,7 +250,6 @@ class SAAProblems(object):
         LocalSols = {}
         mpi_rank = self.mpi_rank
 
-        sampler = TruncatedGaussianSampler()
 
         Nref = int(self.Nref)
 
@@ -295,16 +265,12 @@ class SAAProblems(object):
                 n, N = e
                 print("r, n, N", r, n, N)
 
-                seed = self.Seeds[r][e]
-                sampler._seed = seed
 
-                assert sampler.seed == seed
                 if self.experiment_name.find("Synthetic") != -1:
                     warnings.warn("Simulation output is synthetic." +
                         " This is a verbose mode used to generate test data for plotting purposes.")
-                    np.random.seed(seed)
 
-                    qmc_sampler = qmc.Sobol(d=1, scramble=True, seed=seed)
+                    qmc_sampler = qmc.Sobol(d=1, scramble=True, seed=1234)
                     m = int(np.log2(N))
                     errors = qmc_sampler.random_base2(m=m)-0.5
                     errors = abs(np.mean(errors))
@@ -312,11 +278,15 @@ class SAAProblems(object):
 
                 else:
 
+                    random_problem = RandomBilinearProblem(n)
+                    sampler = TruncatedGaussianSampler(r-1, N, random_problem.num_rvs, self.num_reps)
+
                     if self.experiment_name.find("Fixed_Control") != -1:
 
                         set_working_tape(Tape())
-                
+
                         random_problem = RandomBilinearProblem(n)
+
                         U = random_problem.control_space
                         u_opt = Expression('x[0] < 0.5 ? -1.0 : 1.0', degree=0, mpi_comm=MPI.comm_self)
                         saa_gradient = self.saa_gradient(sampler, n, N, initial_control=u_opt)
@@ -328,23 +298,20 @@ class SAAProblems(object):
                                             gradient_vec = saa_gradient.vector()[:], reference_gradient_vec = reference_gradient_vec)
 
                         sol = u_opt
-                        sampler._seed = seed
 
                     else:
 
                         u_opt = None
-                        for n_ in [32, n]:
+                        for n_ in [2**i for i in range(5, int(np.log2(n)+1))]:
                             print("Homotopy method with n = {}".format(n_))
-                            print("r, n, N", r, n_, n, N)
+                            print("r, n_, n, N", r, n_, n, N)
                             sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n_, N, initial_control=u_opt)
-                            sampler._seed = seed
 
                         u_opt = u_opt.vector()[:]
 
                         errors = self.criticality_measure(u_opt, n, Nref, gradient_vec = grad_opt.vector()[:])
                         errors.append(dual_gap)
-                        sol = u_opt.vector()[:]
-
+                        sol = u_opt
 
                 E[e] = errors
                 S[e] = sol
