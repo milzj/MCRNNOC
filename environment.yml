@@ -3,12 +3,12 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10.10
-  - pip=24.1
+  - python=3.8.11
   - fenics=2019.1.0
-  - scipy=1.13.1
-  - numpy=2.0.0
+  - scipy=1.10.0
+  - numpy=1.21.1
   - matplotlib=3.4.2
-  - dolfin-adjoint=2023.0.0
+  - dolfin-adjoint=2023.1.0
+  - pip=20.2.4
   - pip:
       - https://zenodo.org/records/10644778/files/milzj/FW4PDE-v1.0.2.zip?download=1
