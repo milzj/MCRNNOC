@@ -8,7 +8,7 @@ dependencies:
   - numpy=1.26.4
   - matplotlib=3.8.4
   - dolfin-adjoint=2023.0.0
-  - python=3.12.4
+  - python=3.10
   - pip=24.0
   - pip:
       - https://zenodo.org/records/10644778/files/milzj/FW4PDE-v1.0.2.zip?download=1
