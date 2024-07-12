@@ -309,7 +309,7 @@ class SAAProblems(object):
 
                         u_opt = None
                         ns_ = [n]+[2**i for i in range(5, int(np.log2(n)+1))]
-                        for n_ in list(set(ns_)):
+                        for n_ in sorted(list(set(ns_))):
                             print("Homotopy method with n = {}".format(n_))
                             print("r, n_, n, N", r, n_, n, N)
                             sampler = TruncatedGaussianSampler(r-1, N, self.num_rvs, self.num_reps)
