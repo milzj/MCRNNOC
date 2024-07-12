@@ -7,7 +7,7 @@ dependencies:
   - scipy=1.14.0
   - numpy=1.26.4
   - matplotlib=3.8.4
-  - dolfin-adjoint=2023.0.0
+  - dolfin-adjoint=2019.1.0
   - python=3.12.4
   - pip=24.0
   - pip:
