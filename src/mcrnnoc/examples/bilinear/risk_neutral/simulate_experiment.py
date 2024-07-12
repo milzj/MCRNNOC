@@ -2,6 +2,8 @@
 
 from dolfin import *
 from dolfin_adjoint import *
+set_log_level(10)
+
 import moola
 import numpy as np
 
@@ -30,7 +32,7 @@ import warnings
 class SAAProblems(object):
 
 
-    def __init__(self, date=-1, experiment=None, Nref=-1, num_reps=48, experiment_name=None):
+    def __init__(self, date=-1, experiment=None, Nref=-1, num_reps=40, experiment_name=None):
 
         self.date = date
         self.experiment = experiment
@@ -46,6 +48,7 @@ class SAAProblems(object):
 
         random_problem = RandomBilinearProblem(8)
         num_rvs = random_problem.num_rvs
+        self.num_rvs = num_rvs
         self.reference_sampler = ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=False)
 
     def divide_simulations(self):
@@ -100,6 +103,7 @@ class SAAProblems(object):
         sampler.num_rvs = random_problem.num_rvs
 
         u = Function(random_problem.control_space)
+        u.vector()[:] = 1
 
         if initial_control != None:
             u = project(initial_control, random_problem.control_space)
@@ -249,6 +253,9 @@ class SAAProblems(object):
         LocalStats = {}
         LocalSols = {}
         mpi_rank = self.mpi_rank
+        print("-------------------------")
+        print("MPI RANK {}".format(mpi_rank))
+        print("-------------------------")
 
 
         Nref = int(self.Nref)
@@ -279,7 +286,6 @@ class SAAProblems(object):
                 else:
 
                     random_problem = RandomBilinearProblem(n)
-                    sampler = TruncatedGaussianSampler(r-1, N, random_problem.num_rvs, self.num_reps)
 
                     if self.experiment_name.find("Fixed_Control") != -1:
 
@@ -302,9 +308,11 @@ class SAAProblems(object):
                     else:
 
                         u_opt = None
-                        for n_ in [2**i for i in range(5, int(np.log2(n)+1))]:
+                        ns_ = [n]+[2**i for i in range(5, int(np.log2(n)+1))]
+                        for n_ in list(set(ns_)):
                             print("Homotopy method with n = {}".format(n_))
                             print("r, n_, n, N", r, n_, n, N)
+                            sampler = TruncatedGaussianSampler(r-1, N, self.num_rvs, self.num_reps)
                             sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n_, N, initial_control=u_opt)
 
                         u_opt = u_opt.vector()[:]

@@ -1,6 +1,6 @@
 from dolfin import *
 from dolfin_adjoint import *
-
+import numpy as np
 from mcrnnoc.random_problem import RandomProblem
 from mcrnnoc.examples import ProblemData
 from mcrnnoc.random_field.exp_random_field import ExpRandomField
@@ -17,6 +17,7 @@ class RandomBilinearProblem(RandomProblem):
         # function spaces and functions
         mesh = UnitSquareMesh(MPI.comm_self, n, n)
         mpi_comm = mesh.mpi_comm()
+        self.mpi_comm = mpi_comm
         V = FunctionSpace(mesh, "CG", 1)
         U = FunctionSpace(mesh, "DG", 0)
 
@@ -24,12 +25,12 @@ class RandomBilinearProblem(RandomProblem):
         self.U = U
 
         self.y = Function(V)
+        self.ytrial = TrialFunction(V)
         self.v = TestFunction(V)
         self.u = Function(U)
 
         # problem data
         problem_data = ProblemData(mpi_comm)
-        self.mpi_comm = mpi_comm
 
         self.lb = problem_data.lb
         self.ub = problem_data.ub
@@ -53,10 +54,14 @@ class RandomBilinearProblem(RandomProblem):
     def state(self, y, v, u, sample):
         """Bilinear PDE"""
 
+        U = self.U
         g = self.g
         f = self.f
         bcs = self.bcs
-        kappa = self.kappa.sample(sample)
+        _kappa = self.kappa.sample_vec(sample)
+
+        kappa = Function(U)
+        kappa.vector().set_local(_kappa)
 
         F = (kappa*inner(grad(y), grad(v)) + g*y*u*v - f*v) * dx
         solve(F == 0, y, bcs=self.bcs)

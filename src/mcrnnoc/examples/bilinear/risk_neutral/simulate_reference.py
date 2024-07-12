@@ -80,6 +80,7 @@ if __name__ == "__main__":
 
 
     else:
+
         now = None
         outdir = None
         n = None
@@ -96,9 +97,9 @@ if __name__ == "__main__":
 
     u_opt = MPI.comm_world.bcast(u_opt, root=0)
 
-    print("Homotopy method")
-    print("")
-    for n_ in [32, 64, n]:
+    print("Homotopy method\n")
+    ns_ = [n]+[2**i for i in range(5, int(np.log2(n)+1))]
+    for n_ in list(set(ns_)):
         print("Homotopy method with n = {}".format(n_))
         sol = simulate_reference(n_, N, initial_control=u_opt)
         u_opt = sol["control_final"].data
@@ -123,7 +124,6 @@ if __name__ == "__main__":
         gradient_final_vec = sol["gradient_final"].data.vector()[:]
         filename = outdir + "/" + "gradient_final_vec_n={}".format(n)
         np.savetxt(filename+ ".txt", gradient_final_vec)
-
 
         # Transform moola objects to arrays
         filename = now + "_reference_solution_mpi_rank={}_N={}_n={}_exit_data".format(mpi_rank, N,n)

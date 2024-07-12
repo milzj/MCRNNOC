@@ -2,9 +2,6 @@ import numpy as np
 from scipy import optimize
 import itertools
 
-from fenics import *
-from dolfin_adjoint import *
-
 class ExpRandomField(object):
     """Implements a random field
 
@@ -204,10 +201,14 @@ class ExpRandomField(object):
         TODO: Improve current implementation.
         """
 
+        import fenics
+
         function_space = self.function_space
         element = function_space.ufl_element()
         mpi_comm = function_space.mesh().mpi_comm()
-        v = Function(function_space)
+        v = fenics.Function(function_space)
+        self.w  = fenics.Function(function_space)
+
         len_scale = self.len_scale
         a = self.a
 
@@ -224,12 +225,24 @@ class ExpRandomField(object):
             eigenvalue_i = self.eigenvalues(len_scale, omega_i)
             eigenvalue_k = self.eigenvalues(len_scale, omega_k)
             s = np.sqrt(eigenvalue_i)*np.sqrt(eigenvalue_k)
-            eigenfunction_ = Expression("s*"+expression_str, s = s, a = a, \
+            eigenfunction_ = fenics.Expression("s*"+expression_str, s = s, a = a, \
                                     omega_i = omega_i, omega_k = omega_k, element=element, mpi_comm = mpi_comm)
             v.interpolate(eigenfunction_)
             _addends.append(v.vector().get_local())
 
         self.addends = np.vstack(_addends).T
+
+    def sample_vec(self, samples):
+        """Compute a sample of KL expansion.
+
+        We compute the sample using a matrix vector multiplication
+        with vector being the samples.
+        """
+
+        addends = self.addends
+        field = addends @ samples
+
+        return np.exp(field)
 
     def sample(self, samples):
         """Compute a sample of KL expansion.
@@ -238,13 +251,13 @@ class ExpRandomField(object):
         with vector being the samples.
         """
 
-        addends = self.addends
-        w = Function(self.function_space)
-
-        field = addends @ samples
-        w.vector()[:] = np.exp(field)
+        w = self.w
+        sample_vec = self.sample_vec(samples)
+        w.vector().set_local(sample_vec)
 
         return w
+
+
 
     def __call__(self, samples):
         return self.sample(samples)

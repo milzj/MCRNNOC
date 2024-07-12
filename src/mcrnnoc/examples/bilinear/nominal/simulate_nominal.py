@@ -54,8 +54,7 @@ y = TrialFunction(V)
 v = TestFunction(V)
 
 a = (inner(grad(y), grad(v)) + g*y*u*v) * dx
-a = (inner(grad(y), grad(v))) * dx
-L = u*v*dx
+L = f*v*dx
 bc = DirichletBC(V, 0.0, "on_boundary")
 
 A, b  = assemble_system(a, L, bc)
