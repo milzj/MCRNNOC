@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
     print("Homotopy method\n")
     ns_ = [n]+[2**i for i in range(5, int(np.log2(n)+1))]
-    for n_ in list(set(ns_)):
+    for n_ in sorted(list(set(ns_))):
         print("Homotopy method with n = {}".format(n_))
         sol = simulate_reference(n_, N, initial_control=u_opt)
         u_opt = sol["control_final"].data
