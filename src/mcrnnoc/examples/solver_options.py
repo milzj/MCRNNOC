@@ -9,7 +9,7 @@ class SolverOptions(object):
     def __init__(self):
 
         maxiter = 100
-        gtol = 1e-11
+        gtol = 1e-10
         ftol = -np.inf
 
         self._options = {"maxiter": maxiter, "gtol": gtol, "ftol": ftol}
