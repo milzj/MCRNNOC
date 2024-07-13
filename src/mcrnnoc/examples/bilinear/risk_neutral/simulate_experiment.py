@@ -108,7 +108,6 @@ class SAAProblems(object):
         if initial_control != None:
             u = project(initial_control, random_problem.control_space)
 
-
         rf = LocalReducedSAAFunctional(random_problem, u, sampler, number_samples, mpi_comm = MPI.comm_self)
 
         assert rf.mpi_size == 1

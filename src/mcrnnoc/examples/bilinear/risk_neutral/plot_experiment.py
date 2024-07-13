@@ -11,7 +11,6 @@ from matplotlib import pyplot as plt
 
 plt.rcParams.update({"legend.frameon": True, "legend.loc": "lower left"})
 plt.rcParams.update({"legend.columnspacing": 1.0})
-plt.rcParams.update({"font.size": 20.})
 
 def load_experiment(outdir):
 
@@ -27,7 +26,7 @@ def load_experiment(outdir):
 
         stats = {}
 
-        for rank in range(48):
+        for rank in range(100):
 
             _filename = filename + "_mpi_rank=" + str(rank)
 
@@ -56,7 +55,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
     """
 
     stats = load_experiment(outdir)
-
+    #print(stats)
     experiment_name = outdir.split("/")[-1].split("_")
     # remove date
     experiment_name.pop(-1)
@@ -99,7 +98,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
 
         for r in replications:
             try:
-                s = stats[r][e][0]
+                s = stats[r][e][1]
             except:
                 s = stats[r][e]
 
@@ -119,11 +118,13 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
     y_vec = [errors_stats[e]["mean"] for e in experiments]
 
     assert len(x_vec) == len(y_vec)
-    print(y_vec)
     if least_squares == "standard" and ndrop >= 0:
         ## least squares
         X = np.ones((len(x_vec[ndrop::]), 2)); X[:, 1] = np.log(x_vec[ndrop::]) # design matrix
         x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[ndrop::]), rcond=None)
+
+        X = np.ones((len(x_vec[0:3]), 2)); X[:, 1] = np.log(x_vec[0:3]) # design matrix
+        x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[0:3]), rcond=None)
 
         rate = x[1]
         constant = np.exp(x[0])
@@ -161,7 +162,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
     ax.scatter(x_vec, y_vec, marker="s", color="black", label=label_mean_realizations)
     # Plot least squares fit
     if ndrop >= 0:
-        X = x_vec[ndrop::]
+        X = x_vec[0:3]
         Y = constant*X**rate
         ax.plot(X, Y, color="black", linestyle="--", label=lsqs_label(rate=rate, constant=constant, base=lsqs_base))
 
