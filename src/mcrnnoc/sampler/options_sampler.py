@@ -6,8 +6,8 @@ class OptionsSampler(object):
 
             a = 2.0
             self._options = {
-                "std": np.sqrt(1.0),
-                "rv_range": [-a, a],
+                "std": np.sqrt(a),
+                "rv_range": [-3*a, 3*a],
                 "loc": 0.0
             }
 
