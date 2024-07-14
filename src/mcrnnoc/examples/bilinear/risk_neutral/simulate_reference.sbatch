@@ -26,8 +26,7 @@ source ../../simulation_data.sh
 n=$nref
 N=$Nref
 mpiexec -n 40 python simulate_reference.py $n $N $date
-
-
+python ../plot_control.py "Reference_Simulation_n=$n"_N="$N""_date=$date/$date""_reference_solution_mpi_rank=0_N=$N""_n=$n"
 
 
 

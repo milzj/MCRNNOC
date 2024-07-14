@@ -49,7 +49,7 @@ class SAAProblems(object):
         random_problem = RandomBilinearProblem(8)
         num_rvs = random_problem.num_rvs
         self.num_rvs = num_rvs
-        self.reference_sampler = ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=False)
+        self.reference_sampler = ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=True)
 
     def divide_simulations(self):
 

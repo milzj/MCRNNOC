@@ -1,7 +1,7 @@
 
 from mcrnnoc.stats import load_dict, compute_random_errors
 from mcrnnoc.stats import lsqs_label
-from mcrnnoc.stats import figure_style
+#from mcrnnoc.stats import figure_style
 
 import warnings
 import numpy as np
@@ -69,6 +69,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
 
     label_realizations = r"$\widetilde \Psi_n(\bar{u}_{N,n})$"
     label_mean_realizations = r"$\widehat{\mathrm{E}}[\widetilde \Psi_n(\bar{u}_{N,n})]$"
+    label_mean_realizations = r"$\mathrm{mean}$"
 
     if experiment_name.find("Monte_Carlo_Rate") != -1:
         x_id = 1 # N_vec
@@ -98,7 +99,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
 
         for r in replications:
             try:
-                s = stats[r][e][1]
+                s = stats[r][e][0]
             except:
                 s = stats[r][e]
 
@@ -123,8 +124,8 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
         X = np.ones((len(x_vec[ndrop::]), 2)); X[:, 1] = np.log(x_vec[ndrop::]) # design matrix
         x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[ndrop::]), rcond=None)
 
-        X = np.ones((len(x_vec[0:3]), 2)); X[:, 1] = np.log(x_vec[0:3]) # design matrix
-        x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[0:3]), rcond=None)
+#        X = np.ones((len(x_vec[0:4]), 2)); X[:, 1] = np.log(x_vec[0:4]) # design matrix
+#        x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[0:4]), rcond=None)
 
         rate = x[1]
         constant = np.exp(x[0])
@@ -162,7 +163,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
     ax.scatter(x_vec, y_vec, marker="s", color="black", label=label_mean_realizations)
     # Plot least squares fit
     if ndrop >= 0:
-        X = x_vec[0:3]
+        X = x_vec
         Y = constant*X**rate
         ax.plot(X, Y, color="black", linestyle="--", label=lsqs_label(rate=rate, constant=constant, base=lsqs_base))
 

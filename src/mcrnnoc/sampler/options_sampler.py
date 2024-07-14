@@ -4,7 +4,7 @@ class OptionsSampler(object):
 
     def __init__(self):
 
-            std = np.sqrt(1.0)
+            std = np.sqrt(1.25)
             self._options = {
                 "std": std,
                 "rv_range": [-3*std, 3*std],
