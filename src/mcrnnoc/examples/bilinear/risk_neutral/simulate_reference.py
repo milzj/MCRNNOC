@@ -15,7 +15,6 @@ from fw4pde.algorithms import FrankWolfe, MoolaBoxLMO
 from fw4pde.problem import ScaledL1Norm, BoxConstraints
 
 from mcrnnoc.stats import save_dict
-from mcrnnoc.misc import criticality_measure
 
 
 def simulate_reference(n, N, initial_control=None):

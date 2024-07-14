@@ -17,15 +17,12 @@ from mcrnnoc.sampler import TruncatedGaussianSobolSampler
 
 from mcrnnoc.random_problem import LocalReducedSAAFunctional
 from mcrnnoc.random_problem import RieszMap
-from mcrnnoc.prox import prox_box_l1
-
-from mcrnnoc.misc.criticality_measure import criticality_measure
+from mcrnnoc.criticality_measures import FEniCSCriticalityMeasures
 
 from fw4pde.algorithms import FrankWolfe, MoolaBoxLMO
 from fw4pde.problem import ScaledL1Norm, BoxConstraints
 
 from mcrnnoc.stats import save_dict
-from mcrnnoc.misc import criticality_measure
 
 import warnings
 
@@ -137,7 +134,7 @@ class SAAProblems(object):
         return sol, sol["dual_gap"], sol["control_final"].data, sol["gradient_final"].data
 
 
-    def criticality_measure(self, control_vec, n, Nref, gradient_vec=None, sampler=None):
+    def reference_criticality_measure(self, control_vec, n, Nref, gradient_vec=None, sampler=None):
         """Evaluate reference gap function and criticality measure without parallelization."""
 
         set_working_tape(Tape())
@@ -146,7 +143,7 @@ class SAAProblems(object):
         random_problem = RandomBilinearProblem(n)
 
         u = Function(random_problem.control_space)
-        u.vector()[:] = control_vec
+        u.vector().set_local(control_vec)
 
         if sampler == None:
             sampler = self.reference_sampler
@@ -172,36 +169,8 @@ class SAAProblems(object):
 
         criticality_measures = []
 
-        # reference gap function
-        scaled_L1_norm = ScaledL1Norm(random_problem.control_space,beta)
-        box_constraints = BoxConstraints(random_problem.control_space, lb, ub)
-        moola_box_lmo = MoolaBoxLMO(box_constraints.lb, box_constraints.ub, beta)
-
-
-        v = v_moola.copy().zero()
-        u_minus_v = v_moola.copy().zero()
-        moola_box_lmo.solve(grad, v)
-
-        u_minus_v.assign(v_moola)
-        u_minus_v.axpy(-1.0, v)
-        dual_gap = deriv.apply(u_minus_v) + \
-                    scaled_L1_norm(u) - \
-                    scaled_L1_norm(v.data)
-
-        criticality_measures.append(dual_gap)
-
-        # reference crit measure
-        g_vec = prox_box_l1(control_vec-grad_vec, box_constraints.lb, box_constraints.ub, beta)
-        prox_grad = Function(random_problem.control_space)
-        prox_grad.vector()[:] = g_vec
-        criticality_measures.append(errornorm(u, prox_grad, degree_rise = 0))
-
-        # crit measure
-        if gradient_vec.any() != None:
-            gg_vec = prox_box_l1(control_vec-gradient_vec, box_constraints.lb, box_constraints.ub, beta)
-            prox_gradient = Function(random_problem.control_space)
-            prox_gradient.vector()[:] = gg_vec
-            criticality_measures.append(errornorm(u, prox_gradient, degree_rise = 0))
+        cm = FEniCSCriticalityMeasures(random_problem.control_space, lb, ub, beta)
+        criticality_measures += [cm.gap(u, grad, deriv)]
 
         return criticality_measures
 
@@ -316,7 +285,7 @@ class SAAProblems(object):
 
                         u_opt = u_opt.vector()[:]
 
-                        errors = self.criticality_measure(u_opt, n, Nref, gradient_vec = grad_opt.vector()[:])
+                        errors = self.reference_criticality_measure(u_opt, n, Nref, gradient_vec = grad_opt.vector()[:])
                         errors.append(dual_gap)
                         sol = u_opt
 
