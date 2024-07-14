@@ -2,7 +2,7 @@
 
 This repository contains supplementary code for the paper
 
-> J. Milz and D. Walter: Monte Carlo estimators for risk-neutral, nonsmooth optimal control with applications to bang-bang problems, working paper, Georgia Tech and HU Berlin, 2023.
+> J. Milz and D. Walter: Empirical estimators for risk-neutral composite optimal control with applications to bang-bang control, working paper, Georgia Tech and HU Berlin, 2023.
 
 ## Abstract
 Nonsmooth composite optimization problems under uncertainty are prevalent in various scientific and engineering applications.
