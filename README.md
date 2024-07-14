@@ -30,8 +30,8 @@ docker run --rm -it ghcr.io/milzj/mcrnnoc:latest
 The Dockerfile can be built and run using
 
 ```
-docker build -t errorestimation . --no-cache --network=host
-docker run -it errorestimation
+docker build -t mcrnnoc . --no-cache --network=host
+docker run -it mcrnnoc
 ```
 
 ### Running the simulations
