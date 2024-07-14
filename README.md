@@ -1,6 +1,6 @@
-# MCRNNOC
+# Supplementary code for the paper: Empirical estimators for risk-neutral composite optimal control with applications to bang-bang control
 
-The code developed here is used in the working paper
+This repository contains supplementary code for the paper
 
 > J. Milz and D. Walter: Monte Carlo estimators for risk-neutral, nonsmooth optimal control with applications to bang-bang problems, working paper, Georgia Tech and HU Berlin, 2023.
 
