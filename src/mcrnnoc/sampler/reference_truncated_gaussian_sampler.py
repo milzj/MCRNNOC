@@ -67,7 +67,6 @@ class ReferenceTruncatedGaussianSampler(OptionsSampler):
         if self.scramble == False:
             sampler = qmc.Sobol(d=d, scramble=False)
             q = sampler.random_base2(m=m)
-            q = q + 1.0/(2*2**m)
 
         else:
             stream = self.streams[0]
