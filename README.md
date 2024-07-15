@@ -52,9 +52,6 @@ conda activate MCRNNOC
 It implements the KKL expansion defined in Example 7.56 ("separable exponential $d=2$") with $a = a_1 = a_2 = 1/2$ in 
 > G. J. Lord, C. E. Powell, and T. Shardlow. An Introduction to Computational Stochastic PDEs. Cambridge Texts Appl. Math. 50. Cambridge University Press, Cambridge, 2014. doi:10.1017/CBO9781139017329.
 
-- We compute reference solutions using unscrambled Sobol' sequences. We shift the Sobol' sequences using a shift mentioned on p. 73 in
-> A. B. Owen. On dropping the first Sobol’ point. In A. Keller, editor, Monte Carlo and quasi-Monte Carlo methods, Springer Proc. Math. Stat. 387, pages 71–86. Springer, Cham, 2022. doi:10.1007/978-3-030-98319-2\_4.
-
 - We used [line_profiler and kernproof](https://github.com/pyutils/line_profiler).
 
 ## Having issues
