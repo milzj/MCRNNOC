@@ -29,24 +29,20 @@ import warnings
 class SAAProblems(object):
 
 
-    def __init__(self, date=-1, experiment=None, Nref=-1, num_reps=40, experiment_name=None):
+    def __init__(self, date=-1, experiment=None, Nref=-1, num_reps=40, experiment_name=None, scramble=True):
 
         self.date = date
         self.experiment = experiment
         self.num_reps = num_reps
         self.Nref = Nref
         self.experiment_name = experiment_name
+        self.scramble = scramble
 
         self.mpi_size = MPI.comm_world.Get_size()
         self.mpi_rank = MPI.comm_world.Get_rank()
         self.LocalStats = {}
 
         self.divide_simulations()
-
-        random_problem = RandomBilinearProblem(8)
-        num_rvs = random_problem.num_rvs
-        self.num_rvs = num_rvs
-        self.reference_sampler = ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=True)
 
     def divide_simulations(self):
 
@@ -144,9 +140,10 @@ class SAAProblems(object):
 
         u = Function(random_problem.control_space)
         u.vector().set_local(control_vec)
+        num_rvs = random_problem.num_rvs
 
         if sampler == None:
-            sampler = self.reference_sampler
+            sampler =  ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=self.scramble)
         else:
             sampler.num_rvs = random_problem.num_rvs
 
@@ -171,6 +168,8 @@ class SAAProblems(object):
 
         cm = FEniCSCriticalityMeasures(random_problem.control_space, lb, ub, beta)
         criticality_measures += [cm.gap(u, grad, deriv)]
+        criticality_measures += [cm.rgap(u, grad, deriv)]
+        criticality_measures += [cm.canonical_map(u, grad.data)]
 
         return criticality_measures
 
@@ -184,10 +183,11 @@ class SAAProblems(object):
             solver_options = SolverOptions()
         
             u = Function(random_problem.control_space)
-            u.vector()[:] = control_vec
+            u.vector().set_local(control_vec)
+            num_rvs = random_problem.num_rvs
     
             if sampler == None:
-                sampler = self.reference_sampler
+                sampler = ReferenceTruncatedGaussianSampler(Nref=Nref, num_rvs=num_rvs, scramble=self.scramble)
             else:
                 sampler.num_rvs = random_problem.num_rvs
     
@@ -207,11 +207,10 @@ class SAAProblems(object):
 
         else:
             grad = Function(random_problem.control_space)
-            grad.vector()[:] = reference_gradient_vec
-            
-                     
+            grad.vector().set_local(reference_gradient_vec)
+
         saa_grad = Function(random_problem.control_space)
-        saa_grad.vector()[:] = gradient_vec
+        saa_grad.vector().set_local(gradient_vec)
 
         return errornorm(grad, saa_grad, degree_rise = 0), reference_gradient_vec
 
@@ -253,13 +252,12 @@ class SAAProblems(object):
 
                 else:
 
+                    set_working_tape(Tape())
                     random_problem = RandomBilinearProblem(n)
-
+                    num_rvs = random_problem.num_rvs
                     if self.experiment_name.find("Fixed_Control") != -1:
 
-                        set_working_tape(Tape())
 
-                        random_problem = RandomBilinearProblem(n)
 
                         U = random_problem.control_space
                         u_opt = Expression('x[0] < 0.5 ? -1.0 : 1.0', degree=0, mpi_comm=MPI.comm_self)
@@ -280,7 +278,7 @@ class SAAProblems(object):
                         for n_ in sorted(list(set(ns_))):
                             print("Homotopy method with n = {}".format(n_))
                             print("r, n_, n, N", r, n_, n, N)
-                            sampler = TruncatedGaussianSampler(r-1, N, self.num_rvs, self.num_reps)
+                            sampler = TruncatedGaussianSampler(r-1, N, num_rvs, self.num_reps)
                             sol, dual_gap, u_opt, grad_opt = self.local_solve(sampler, n_, N, initial_control=u_opt)
 
                         u_opt = u_opt.vector()[:]
