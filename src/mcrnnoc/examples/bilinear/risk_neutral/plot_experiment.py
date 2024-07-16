@@ -67,9 +67,6 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
     #     The number of columns that the legend has.
     ncol = 1
 
-    label_realizations = r"$\widetilde \Psi_n(\bar{u}_{N,n})$"
-    label_mean_realizations = r"$\widehat{\mathrm{E}}[\widetilde \Psi_n(\bar{u}_{N,n})]$"
-    label_mean_realizations = r"$\mathrm{mean}$"
 
     if experiment_name.find("Monte_Carlo_Rate") != -1:
         x_id = 1 # N_vec
@@ -93,125 +90,134 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
 
     errors = {}
 
-    # Find all replications for each experiment
-    for e in experiment[('n_vec', 'N_vec')]:
-        errors[e] = []
+    label_mean_realizations = r"$\mathrm{mean}$"
+    label_vec_realizations = [r"$\Psi_{\mathrm{ref}}(\bar{u}_{N}^*)$"]
+    label_vec_realizations += [r"$\Psi_{\mathrm{reg},\mathrm{ref}}(\bar{u}_{N}^*)$"]
+    label_vec_realizations += [r"$\chi_{\mathrm{ref}}(\bar{u}_{N}^*)$"]
 
-        for r in replications:
-            try:
-                s = stats[r][e][0]
-            except:
-                s = stats[r][e]
+    labels_criticality_measure = ["gap", "regularizedgap", "canonical"]
 
-            errors[e].append(s)
+    for i in range(3):
 
+        label_realizations = label_vec_realizations[i]
+        label_criticality_measure = labels_criticality_measure[i]
 
-    # Compute statistics
-    errors_stats = compute_random_errors(errors)
+        # Find all replications for each experiment
+        for e in experiment[('n_vec', 'N_vec')]:
+            errors[e] = []
 
-    # Find "x" values
-    x_vec = []
-    for e in errors.keys():
-        n, N = e
-        x_vec.append(e[x_id])
+            for r in replications:
+                try:
+                    s = stats[r][e][i]
+                except:
+                    s = stats[r][e]
 
-    # Compute convergence rates
-    y_vec = [errors_stats[e]["mean"] for e in experiments]
+                errors[e].append(s)
 
-    assert len(x_vec) == len(y_vec)
-    if least_squares == "standard" and ndrop >= 0:
-        ## least squares
-        X = np.ones((len(x_vec[ndrop::]), 2)); X[:, 1] = np.log(x_vec[ndrop::]) # design matrix
-        x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[ndrop::]), rcond=None)
+        # Compute statistics
+        errors_stats = compute_random_errors(errors)
 
-#        X = np.ones((len(x_vec[0:4]), 2)); X[:, 1] = np.log(x_vec[0:4]) # design matrix
-#        x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[0:4]), rcond=None)
-
-        rate = x[1]
-        constant = np.exp(x[0])
-
-    elif least_squares == "soft_l1" and ndrop >= 0:
-        scale = 1e-4
-        gtol=1e-10
-
-        import scipy.optimize
-
-        def fun(x, t, y):
-            return np.log(y) - x[0] - np.log(t)*x[1]
-
-        x0 = np.ones(2)
-        t_train = x_vec[ndrop::]
-        y_train = y_vec[ndrop::]
-        res_robust = scipy.optimize.least_squares(fun, x0, loss=least_squares, f_scale=scale, gtol=gtol, ftol=gtol, args=(t_train, y_train))
-
-        rate = res_robust.x[1]
-        constant = np.exp(res_robust.x[0])
-        print("Status Huber regression={}".format(res_robust.status))
-
-
-    # Plot
-    fig, ax = plt.subplots()
-    # Plot legend for fixed variable
-    ax.plot([], [], " ", label=empty_label)
-
-    # Plot realizations
-    for e in errors.keys():
-        Y = errors[e]
-        ax.scatter(e[x_id]*np.ones(len(Y)), Y, marker="o", color = "black", s=2, label=label_realizations)
-
-    # Plot mean of realizations
-    ax.scatter(x_vec, y_vec, marker="s", color="black", label=label_mean_realizations)
-    # Plot least squares fit
-    if ndrop >= 0:
-        X = x_vec
-        Y = constant*X**rate
-        ax.plot(X, Y, color="black", linestyle="--", label=lsqs_label(rate=rate, constant=constant, base=lsqs_base))
-
-
-    # Legend and labels
-    ax.set_xlabel(xlabel)
-    ax.set_xscale("log", base=base)
-    ax.set_yscale("log", base=base)
-
-    ## Legend with unique entries
-    _handles, _labels = plt.gca().get_legend_handles_labels()
-    by_label = dict(zip(_labels, _handles))
-    plt.legend(by_label.values(), by_label.keys(), ncol=ncol, loc="best")
-
-
-    if experiment_name.find("Synthetic") != -1 and 1 == 2:
-
-        ax.text(0.5, 0.5, "Test figure with synthetic data.", transform=ax.transAxes,
-            fontsize=20, color='red', alpha=1.0,
-            ha='center', va='center', rotation='30')
-
-
-    if set_ylim == True and experiment_name.find("Dimension_Dependence") != -1:
-        Y = []
+        # Find "x" values
+        x_vec = []
         for e in errors.keys():
-                    Y.append(errors[e])
+            n, N = e
+            x_vec.append(e[x_id])
 
-        ymin = np.min(Y)/10
-        ymax = 1.5*np.max(Y)
+        # Compute convergence rates
+        y_vec = [errors_stats[e]["mean"] for e in experiments]
 
-        ax.set_ylim([ymin, ymax])
+        assert len(x_vec) == len(y_vec)
+        if least_squares == "standard" and ndrop >= 0:
+            ## least squares
+            X = np.ones((len(x_vec[ndrop::]), 2)); X[:, 1] = np.log(x_vec[ndrop::]) # design matrix
+            x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[ndrop::]), rcond=None)
+
+    #        X = np.ones((len(x_vec[1:8]), 2)); X[:, 1] = np.log(x_vec[1:8]) # design matrix
+    #        x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[1:8]), rcond=None)
+
+            rate = x[1]
+            constant = np.exp(x[0])
+
+        elif least_squares == "soft_l1" and ndrop >= 0:
+            scale = 1e-4
+            gtol=1e-10
+
+            import scipy.optimize
+
+            def fun(x, t, y):
+                return np.log(y) - x[0] - np.log(t)*x[1]
+
+            x0 = np.ones(2)
+            t_train = x_vec[ndrop::]
+            y_train = y_vec[ndrop::]
+            res_robust = scipy.optimize.least_squares(fun, x0, loss=least_squares, f_scale=scale, gtol=gtol, ftol=gtol, args=(t_train, y_train))
+
+            rate = res_robust.x[1]
+            constant = np.exp(res_robust.x[0])
+            print("Status Huber regression={}".format(res_robust.status))
 
 
-    plt.tight_layout()
-    plt.savefig(outdir + "/" + outdir.split("/")[-1] + "_tikhonov_{}".format(tikhonov) + ".pdf")
-    plt.close()
+        # Plot
+        fig, ax = plt.subplots()
+        # Plot legend for fixed variable
+        ax.plot([], [], " ", label=empty_label)
+
+        # Plot realizations
+        for e in errors.keys():
+            Y = errors[e]
+            ax.scatter(e[x_id]*np.ones(len(Y)), Y, marker="o", color = "black", s=2, label=label_realizations)
+
+        # Plot mean of realizations
+        ax.scatter(x_vec, y_vec, marker="s", color="black", label=label_mean_realizations)
+        # Plot least squares fit
+        if ndrop >= 0:
+            X = x_vec
+            Y = constant*X**rate
+            ax.plot(X, Y, color="black", linestyle="--", label=lsqs_label(rate=rate, constant=constant, base=lsqs_base))
+
+
+        # Legend and labels
+        ax.set_xlabel(xlabel)
+        ax.set_xscale("log", base=base)
+        ax.set_yscale("log", base=base)
+
+        ## Legend with unique entries
+        _handles, _labels = plt.gca().get_legend_handles_labels()
+        by_label = dict(zip(_labels, _handles))
+        plt.legend(by_label.values(), by_label.keys(), ncol=ncol, loc="best")
+
+
+        if experiment_name.find("Synthetic") != -1 and 1 == 2:
+
+            ax.text(0.5, 0.5, "Test figure with synthetic data.", transform=ax.transAxes,
+                fontsize=20, color='red', alpha=1.0,
+                ha='center', va='center', rotation='30')
+
+
+        if set_ylim == True and experiment_name.find("Dimension_Dependence") != -1:
+            Y = []
+            for e in errors.keys():
+                        Y.append(errors[e])
+
+            ymin = np.min(Y)/10
+            ymax = 1.5*np.max(Y)
+
+            ax.set_ylim([ymin, ymax])
+
+
+        plt.tight_layout()
+        plt.savefig(outdir + "/" + outdir.split("/")[-1] + "_criticality_measure_{}".format(label_criticality_measure) + ".pdf")
+        plt.close()
 
 if __name__ == "__main__":
 
     import sys
 
     outdir = sys.argv[1]
+
     try:
         ndrop = int(sys.argv[2])
-        tikhonov = -1
     except:
         ndrop = 0
-        tikhonov = -1
 
-    print(ndrop)
-    plot_experiment(outdir, ndrop=ndrop, tikhonov=tikhonov)
+    plot_experiment(outdir, ndrop=ndrop)
