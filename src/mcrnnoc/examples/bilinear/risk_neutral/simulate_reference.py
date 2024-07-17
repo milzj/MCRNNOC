@@ -16,7 +16,6 @@ from fw4pde.problem import ScaledL1Norm, BoxConstraints
 
 from mcrnnoc.stats import save_dict
 
-
 def simulate_reference(n, N, initial_control=None):
 
     set_working_tape(Tape())
@@ -113,7 +112,7 @@ if __name__ == "__main__":
         # save relative path + filename of control
         relative_path = filename.split("/")
         relative_path = relative_path[1] + "/"+ relative_path[2]
-        np.savetxt(filename + "_filename.txt", np.array([relative_path]), fmt = "%s")
+        np.savetxt(outdir + "/Reference_Simulation" + "_filename.txt", np.array([relative_path]), fmt = "%s")
 
         # save control as pvd
         file = File(MPI.comm_self, filename + ".pvd")
