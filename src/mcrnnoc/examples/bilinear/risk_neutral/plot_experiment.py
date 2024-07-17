@@ -7,6 +7,9 @@ import warnings
 import numpy as np
 import itertools
 
+import fw4pde
+import fenics
+
 from matplotlib import pyplot as plt
 
 plt.rcParams.update({"legend.frameon": True, "legend.loc": "lower left"})
@@ -21,27 +24,85 @@ def load_experiment(outdir):
 
     try:
         stats = load_dict(outdir, filename)
+        stats_solutions = load_dict(outdir, filename + "_solutions")
 
     except FileNotFoundError:
 
         stats = {}
+        stats_solutions = {}
 
         for rank in range(100):
 
             _filename = filename + "_mpi_rank=" + str(rank)
+            _filename_solutions = filename + "_solutions_mpi_rank=" + str(rank)
 
             try:
                 _stats = load_dict(outdir, _filename)
                 stats.update(_stats)
+
+                _stats_solutions = load_dict(outdir, _filename_solutions)
+                stats_solutions.update(_stats_solutions)
+
 
             except FileNotFoundError:
                 msg = _filename + " not found. " + "Search for simulation output terminates."
                 warnings.warn(msg)
                 break
 
-    return stats
+    return stats, stats_solutions
 
-def plot_experiment(outdir, ndrop=0, tikhonov=-1):
+
+def plot_data(x_vec, Y_vec, xlabel, label, filename_postfix, base, lsqs_base, empty_label="", ndrop=0):
+
+    ncol = 1
+    y_vec = np.mean(Y_vec, axis=1)
+    assert len(x_vec) == len(y_vec)
+
+    ## least squares
+    X = np.ones((len(x_vec[ndrop::]), 2)); X[:, 1] = np.log(x_vec[ndrop::]) # design matrix
+    x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[ndrop::]), rcond=None)
+
+#   X = np.ones((len(x_vec[1:8]), 2)); X[:, 1] = np.log(x_vec[1:8]) # design matrix
+#   x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[1:8]), rcond=None)
+
+    rate = x[1]
+    constant = np.exp(x[0])
+
+    # Plot
+    fig, ax = plt.subplots()
+    # Plot legend for fixed variable
+    ax.plot([], [], " ", label=empty_label)
+
+    # Plot realizations
+    for i in range(len(x_vec)):
+        ax.scatter(x_vec[i]*np.ones(len(Y_vec[i])), Y_vec[i], marker="o", color = "black", s=2, label=label)
+
+    # Plot mean of realizations
+    ax.scatter(x_vec, y_vec, marker="s", color="black", label="mean")
+
+    # Plot least squares fit
+    if ndrop >= 0:
+        X = x_vec
+        Y = constant*X**rate
+        ax.plot(X, Y, color="black", linestyle="--", label=lsqs_label(rate=rate, constant=constant, base=lsqs_base))
+
+    # Legend and labels
+    ax.set_xlabel(xlabel)
+    ax.set_xscale("log", base=base)
+    ax.set_yscale("log", base=base)
+
+    ## Legend with unique entries
+    _handles, _labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(zip(_labels, _handles))
+    plt.legend(by_label.values(), by_label.keys(), ncol=ncol, loc="best")
+
+    plt.tight_layout()
+    plt.savefig(outdir + "/" + outdir.split("/")[-1] + "_{}".format(filename_postfix) + ".svg")
+    plt.savefig(outdir + "/" + outdir.split("/")[-1] + "_{}".format(filename_postfix) + ".pdf")
+    plt.close()
+
+
+def plot_experiment(outdir, outdir_ref = "", ndrop=0):
     """Generate convergence plots.
 
     Parameters:
@@ -53,9 +114,7 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
             convergence rates using least squares.
 
     """
-
-    stats = load_experiment(outdir)
-    #print(stats)
+    stats, stats_solutions = load_experiment(outdir)
     experiment_name = outdir.split("/")[-1].split("_")
     # remove date
     experiment_name.pop(-1)
@@ -64,10 +123,8 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
     experiment = load_dict(outdir, experiment_name)
     experiment = experiment[experiment_name]
 
-    #     The number of columns that the legend has.
+    # The number of columns that the legend has.
     ncol = 1
-
-
     if experiment_name.find("Monte_Carlo_Rate") != -1:
         x_id = 1 # N_vec
         xlabel = r"$N$"
@@ -77,34 +134,45 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
         empty_label = r"($n={}$)".format(n)
         set_ylim = False
         ndelete = 0
-        least_squares = "soft_l1"
         least_squares = "standard"
-
     else:
         raise ValueError(experiment_name + "unknown.")
 
 
     experiments = experiment[('n_vec', 'N_vec')]
-
     replications = sorted(stats.keys())
-
     errors = {}
+    errors_solutions = {}
 
-    label_mean_realizations = r"$\mathrm{mean}$"
-    label_vec_realizations = [r"$\Psi_{\mathrm{ref}}(\bar{u}_{N}^*)$"]
-    label_vec_realizations += [r"$\Psi_{\mathrm{reg},\mathrm{ref}}(\bar{u}_{N}^*)$"]
-    label_vec_realizations += [r"$\chi_{\mathrm{ref}}(\bar{u}_{N}^*)$"]
+    label_realizations_vec = [r"$\Psi_{\mathrm{ref}}(\bar{u}_{N})$"]
+    label_realizations_vec += [r"$\Psi_{\mathrm{reg},\mathrm{ref}}(\bar{u}_{N})$"]
+    label_realizations_vec += [r"$\chi_{\mathrm{ref}}(\bar{u}_{N})$"]
 
-    labels_criticality_measure = ["gap", "regularizedgap", "canonical"]
+    filename_postfix_vec = ["gap", "regularizedgap", "canonical"]
 
+
+    # L1 control errors
+    if len(outdir_ref) > 0:
+        mesh = fenics.UnitSquareMesh(n,n)
+        U = fenics.FunctionSpace(mesh, "DG", 0)
+        u_minus_uref = fenics.Function(U)
+        L1norm = fw4pde.base.NormL1(U)
+
+        filename = np.loadtxt(outdir_ref + "/" + "Reference_Simulation_filename.txt", dtype=str)
+        filename = str(filename)
+        uref_vec = np.loadtxt("output/"+ filename + ".txt")
+        n = int(filename.split("n=")[-1])
+
+    # criticality measures
     for i in range(3):
 
-        label_realizations = label_vec_realizations[i]
-        label_criticality_measure = labels_criticality_measure[i]
+        label_realizations = label_realizations_vec[i]
+        filename_postfix = filename_postfix_vec[i]
 
         # Find all replications for each experiment
         for e in experiment[('n_vec', 'N_vec')]:
             errors[e] = []
+            errors_solutions[e] = []
 
             for r in replications:
                 try:
@@ -114,8 +182,10 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
 
                 errors[e].append(s)
 
-        # Compute statistics
-        errors_stats = compute_random_errors(errors)
+                if i == 0 and len(outdir_ref) > 0:
+                    s_solutions = stats_solutions[r][e]
+                    u_minus_uref.vector().set_local(s_solutions-uref_vec)
+                    errors_solutions[e].append(L1norm(u_minus_uref))
 
         # Find "x" values
         x_vec = []
@@ -124,90 +194,21 @@ def plot_experiment(outdir, ndrop=0, tikhonov=-1):
             x_vec.append(e[x_id])
 
         # Compute convergence rates
-        y_vec = [errors_stats[e]["mean"] for e in experiments]
+        y_vec = [errors[e] for e in experiments]
 
-        assert len(x_vec) == len(y_vec)
-        if least_squares == "standard" and ndrop >= 0:
-            ## least squares
-            X = np.ones((len(x_vec[ndrop::]), 2)); X[:, 1] = np.log(x_vec[ndrop::]) # design matrix
-            x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[ndrop::]), rcond=None)
+        plot_data(x_vec, y_vec, xlabel, label_realizations, "criticality_measure_" + filename_postfix, base,
+                                lsqs_base, empty_label=empty_label, ndrop=ndrop)
 
-    #        X = np.ones((len(x_vec[1:8]), 2)); X[:, 1] = np.log(x_vec[1:8]) # design matrix
-    #        x, residudals, rank, s = np.linalg.lstsq(X, np.log(y_vec[1:8]), rcond=None)
+        if i == 0 and len(outdir_ref) > 0:
+            # Compute convergence rates
+            y_vec = [errors_solutions[e] for e in experiments]
 
-            rate = x[1]
-            constant = np.exp(x[0])
-
-        elif least_squares == "soft_l1" and ndrop >= 0:
-            scale = 1e-4
-            gtol=1e-10
-
-            import scipy.optimize
-
-            def fun(x, t, y):
-                return np.log(y) - x[0] - np.log(t)*x[1]
-
-            x0 = np.ones(2)
-            t_train = x_vec[ndrop::]
-            y_train = y_vec[ndrop::]
-            res_robust = scipy.optimize.least_squares(fun, x0, loss=least_squares, f_scale=scale, gtol=gtol, ftol=gtol, args=(t_train, y_train))
-
-            rate = res_robust.x[1]
-            constant = np.exp(res_robust.x[0])
-            print("Status Huber regression={}".format(res_robust.status))
+            label_realizations = r"$\|\bar u_N - \bar u\|_{L^1(D)}$"
+            filename_postfix = "L1errors"
+            plot_data(x_vec, y_vec, xlabel, label_realizations, filename_postfix, base,
+                                    lsqs_base, empty_label=empty_label, ndrop=ndrop)
 
 
-        # Plot
-        fig, ax = plt.subplots()
-        # Plot legend for fixed variable
-        ax.plot([], [], " ", label=empty_label)
-
-        # Plot realizations
-        for e in errors.keys():
-            Y = errors[e]
-            ax.scatter(e[x_id]*np.ones(len(Y)), Y, marker="o", color = "black", s=2, label=label_realizations)
-
-        # Plot mean of realizations
-        ax.scatter(x_vec, y_vec, marker="s", color="black", label=label_mean_realizations)
-        # Plot least squares fit
-        if ndrop >= 0:
-            X = x_vec
-            Y = constant*X**rate
-            ax.plot(X, Y, color="black", linestyle="--", label=lsqs_label(rate=rate, constant=constant, base=lsqs_base))
-
-
-        # Legend and labels
-        ax.set_xlabel(xlabel)
-        ax.set_xscale("log", base=base)
-        ax.set_yscale("log", base=base)
-
-        ## Legend with unique entries
-        _handles, _labels = plt.gca().get_legend_handles_labels()
-        by_label = dict(zip(_labels, _handles))
-        plt.legend(by_label.values(), by_label.keys(), ncol=ncol, loc="best")
-
-
-        if experiment_name.find("Synthetic") != -1 and 1 == 2:
-
-            ax.text(0.5, 0.5, "Test figure with synthetic data.", transform=ax.transAxes,
-                fontsize=20, color='red', alpha=1.0,
-                ha='center', va='center', rotation='30')
-
-
-        if set_ylim == True and experiment_name.find("Dimension_Dependence") != -1:
-            Y = []
-            for e in errors.keys():
-                        Y.append(errors[e])
-
-            ymin = np.min(Y)/10
-            ymax = 1.5*np.max(Y)
-
-            ax.set_ylim([ymin, ymax])
-
-
-        plt.tight_layout()
-        plt.savefig(outdir + "/" + outdir.split("/")[-1] + "_criticality_measure_{}".format(label_criticality_measure) + ".pdf")
-        plt.close()
 
 if __name__ == "__main__":
 
@@ -216,8 +217,8 @@ if __name__ == "__main__":
     outdir = sys.argv[1]
 
     try:
-        ndrop = int(sys.argv[2])
+        outdir_ref = sys.argv[2]
     except:
-        ndrop = 0
+        outdir_ref = ""
 
-    plot_experiment(outdir, ndrop=ndrop)
+    plot_experiment(outdir, outdir_ref = outdir_ref, ndrop=0)
