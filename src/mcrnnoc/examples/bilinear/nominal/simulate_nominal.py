@@ -13,11 +13,11 @@ from fw4pde.stepsize import DunnScalingStepSize
 
 from mcrnnoc.examples import ProblemData
 from mcrnnoc.examples import SolverOptions
-from mcrnnoc.misc.criticality_measure import criticality_measure
+from mcrnnoc.criticality_measures import FEniCSCriticalityMeasures
 
 import matplotlib.pyplot as plt
+from mcrnnoc.examples.bilinear import plot_control
 from mcrnnoc.stats import save_dict
-
 
 n = int(sys.argv[1])
 now = str(sys.argv[2])
@@ -92,45 +92,33 @@ with stop_annotating():
     filename = outdir + "/" + "final_nominal_n={}".format(n)
     np.savetxt(filename + ".txt", solution_final.vector().get_local())
 
+    plot_control(filename)
+
     # save relative path + filename of control
     relative_path = filename.split("/")
     relative_path = relative_path[1] + "/"+ relative_path[2]
     np.savetxt(filename + "_filename.txt", np.array([relative_path]), fmt = "%s")
 
-
-
     gradient_final = sol["gradient_final"].data
 
+    plot_control(filename)
+
     # Comparing canonical criticality measure and dual gap
-    cm_value = criticality_measure(solution_final, gradient_final, box_constraints.lb, box_constraints.ub, beta)
+    cm = FEniCSCriticalityMeasures(U, lb, ub, beta)
     dual_gap = sol["dual_gap"]
-    assert cm_value <= sqrt(dual_gap)
-
-    p = plot(solution_final)
-    plt.colorbar(p)
-    plt.savefig(filename +  ".pdf", bbox_inches="tight")
-    plt.savefig(filename +  ".png", bbox_inches="tight")
-    plt.close()
-
-    p = plot(gradient_final)
-    plt.colorbar(p)
-    plt.savefig(outdir + "/" + "gradient_final_nominal_n={}".format(n) +  ".pdf", bbox_inches="tight")
-    plt.savefig(outdir + "/" + "gradient_final_nominal_n={}".format(n) +  ".png", bbox_inches="tight")
-    plt.close()
+    assert cm.canonical_map(solution_final, gradient_final) <= sqrt(dual_gap)
 
     solution_best = sol["control_best"].data
     filename = outdir + "/" + "best_nominal_n={}".format(n)
     np.savetxt(filename + ".txt", solution_best.vector().get_local())
 
-    p = plot(solution_best)
-    plt.colorbar(p)
-    plt.savefig(filename +  ".pdf", bbox_inches="tight")
-    plt.savefig(filename +  ".png", bbox_inches="tight")
-    plt.close()
+    plot_control(filename)
 
     gradient_final_vec = sol["gradient_final"].data.vector()[:]
     filename = outdir + "/" + "gradient_final_vec_n={}".format(n)
     np.savetxt(filename+ ".txt", gradient_final_vec)
+
+    plot_control(filename)
 
     # save exit data
     filename = now + "_reference_solution_n={}_exit_data".format(n)
