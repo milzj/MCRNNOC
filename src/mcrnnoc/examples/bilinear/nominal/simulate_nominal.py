@@ -18,6 +18,7 @@ from mcrnnoc.criticality_measures import FEniCSCriticalityMeasures
 import matplotlib.pyplot as plt
 from mcrnnoc.examples.bilinear import plot_control
 from mcrnnoc.stats import save_dict
+from mcrnnoc.stats.figure_style import *
 
 n = int(sys.argv[1])
 now = str(sys.argv[2])

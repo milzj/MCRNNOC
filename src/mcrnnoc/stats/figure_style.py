@@ -18,11 +18,11 @@ line_styles = ['-', "-."]
 if shutil.which('latex'):
     plt.rcParams['text.usetex'] = True
     plt.rcParams["text.latex.preamble"] = r"\usepackage{amsfonts}"
+    plt.rcParams["font.family"] = r"\usepackage{amsfonts}"
+    plt.rcParams["font.serif"] = r"Computer Modern Roman"
+    plt.rcParams["font.monospace"] = r"Computer Modern Typewriter"
 
 plt.rcParams.update({
-	"font.family": "serif",
-	"font.serif": "Computer Modern Roman",
-	"font.monospace": "Computer Modern Typewriter",
 	"lines.linewidth": linewidth,
 	"font.size": fontsize,
 	"legend.frameon": True,

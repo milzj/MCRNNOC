@@ -5,6 +5,8 @@ import fw4pde
 import fenics
 from matplotlib import pyplot as plt
 
+from mcrnnoc.stats.figure_style import *
+
 plt.rcParams.update({
     "legend.frameon": True,
     "legend.loc": "lower left",
@@ -81,7 +83,7 @@ def plot_experiment(outdir, outdir_ref="", ndrop=0):
     experiments, replications = experiment[('n_vec', 'N_vec')], sorted(stats.keys())
     errors, errors_solutions = {}, {}
 
-    labels = [r"$\Psi_{\mathrm{ref}}(\bar{u}_{N})$", r"$\Psi_{\mathrm{reg},\mathrm{ref}}(\bar{u}_{N})$", r"$\chi_{\mathrm{ref}}(\bar{u}_{N})$"]
+    labels = [r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\Psi_{\mathrm{reg},\mathrm{ref}}(u_{N}^*)$", r"$\chi_{\mathrm{ref}}(u_{N}^*)$"]
     postfixes = ["gap", "regularizedgap", "canonical"]
 
     if outdir_ref:

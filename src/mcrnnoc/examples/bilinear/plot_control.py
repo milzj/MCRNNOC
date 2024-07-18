@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import sys
 
+from mcrnnoc.stats.figure_style import *
+
 def plot_control(input_dir, colorbar=1):
     cmap_blue_orange = LinearSegmentedColormap.from_list(name="cmap_BlueOrange",
                                                           colors=["tab:blue", "lightgrey", "tab:orange"],
