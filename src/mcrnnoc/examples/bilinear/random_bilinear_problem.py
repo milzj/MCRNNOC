@@ -47,6 +47,9 @@ class RandomBilinearProblem(RandomProblem):
         self.num_rvs = options_random_field["num_addends"]**2
         self.kappa = ExpRandomField(U, options_random_field)
 
+    def __str__(self):
+        return "RandomBilinearProblem"
+
     @property
     def control_space(self):
         return self.U

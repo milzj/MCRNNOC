@@ -11,6 +11,8 @@ from fw4pde.algorithms import FrankWolfe, MoolaBoxLMO
 from fw4pde.problem import ScaledL1Norm, BoxConstraints
 from fw4pde.stepsize import DunnScalingStepSize
 
+from mcrnnoc.examples.bilinear import RandomBilinearProblem
+
 from mcrnnoc.examples import ProblemData
 from mcrnnoc.examples import SolverOptions
 from mcrnnoc.criticality_measures import FEniCSCriticalityMeasures
@@ -23,9 +25,11 @@ from mcrnnoc.stats.figure_style import *
 n = int(sys.argv[1])
 now = str(sys.argv[2])
 
+control_problem = RandomBilinearProblem(n)
+
 import os
 outdir = "output/"
-outdir = outdir+"Nominal_Simulation_n="+str(n)+"_date={}".format(now)
+outdir = outdir+str(control_problem)+"_Nominal_Simulation_n="+str(n)+"_date={}".format(now)
 if not os.path.exists(outdir):
 	os.makedirs(outdir)
 
@@ -90,14 +94,14 @@ with stop_annotating():
     sol = solver.solve()
 
     solution_final = sol["control_final"].data
-    filename = outdir + "/" + "final_nominal_n={}".format(n)
+    filename = outdir + "/" + str(control_problem) + "_" + "final_nominal_n={}_{}".format(n, now)
     np.savetxt(filename + ".txt", solution_final.vector().get_local())
 
     plot_control(filename)
 
     # save relative path + filename of control
     relative_path = filename.split("/")
-    relative_path = relative_path[1] + "/"+ relative_path[2]
+    relative_path = relative_path[1] + "/"  + relative_path[2]
     np.savetxt(filename + "_filename.txt", np.array([relative_path]), fmt = "%s")
 
     gradient_final = sol["gradient_final"].data
@@ -110,13 +114,13 @@ with stop_annotating():
     assert cm.canonical_map(solution_final, gradient_final) <= sqrt(dual_gap)
 
     solution_best = sol["control_best"].data
-    filename = outdir + "/" + "best_nominal_n={}".format(n)
+    filename = outdir + "/" + str(control_problem) + "_" + "best_nominal_n={}_{}".format(n, now)
     np.savetxt(filename + ".txt", solution_best.vector().get_local())
 
     plot_control(filename)
 
     gradient_final_vec = sol["gradient_final"].data.vector()[:]
-    filename = outdir + "/" + "gradient_final_vec_n={}".format(n)
+    filename = outdir + "/" + str(control_problem) + "_"  + "gradient_final_vec_n={}_".format(n, now)
     np.savetxt(filename+ ".txt", gradient_final_vec)
 
     plot_control(filename)
