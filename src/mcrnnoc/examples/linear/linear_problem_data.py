@@ -10,7 +10,7 @@ class LinearProblemData(object):
 			                    degree=0, mpi_comm=mpi_comm)
         self._lb = Constant(-1.0)
         self._ub = Constant(1.0)
-        self._beta = 0.011
+        self._beta = 0.015
 
     @property
     def yd(self):
