@@ -2,7 +2,7 @@ from dolfin import *
 from dolfin_adjoint import *
 import numpy as np
 from mcrnnoc.random_problem import RandomProblem
-from mcrnnoc.examples import ProblemData
+from .linear_problem_data import LinearProblemData
 from mcrnnoc.random_field.exp_random_field import ExpRandomField
 from mcrnnoc.random_field.options_random_field import OptionsRandomField
 
@@ -30,7 +30,7 @@ class RandomLinearProblem(RandomProblem):
         self.u = Function(U)
 
         # problem data
-        problem_data = ProblemData(mpi_comm)
+        problem_data = LinearProblemData(mpi_comm)
 
         self.lb = problem_data.lb
         self.ub = problem_data.ub

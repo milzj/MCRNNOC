@@ -12,13 +12,13 @@ from fw4pde.problem import ScaledL1Norm, BoxConstraints
 from fw4pde.stepsize import DunnScalingStepSize
 
 from mcrnnoc.examples.linear import RandomLinearProblem
+from mcrnnoc.examples.linear import LinearProblemData
 
-from mcrnnoc.examples import ProblemData
 from mcrnnoc.examples import SolverOptions
 from mcrnnoc.criticality_measures import FEniCSCriticalityMeasures
 
 import matplotlib.pyplot as plt
-from mcrnnoc.examples.bilinear import plot_control
+from mcrnnoc.examples.linear import plot_control
 from mcrnnoc.stats import save_dict
 from mcrnnoc.stats.figure_style import *
 
@@ -41,13 +41,11 @@ stepsize = solver_options.stepsize
 
 # PDE and problem data
 mesh = UnitSquareMesh(n,n)
-problem_data = ProblemData(mesh.mpi_comm())
+problem_data = LinearProblemData(mesh.mpi_comm())
 
 lb = problem_data.lb
 ub = problem_data.ub
 beta = problem_data.beta
-f = problem_data.f
-g = problem_data.g
 yd = problem_data.yd
 
 
