@@ -8,7 +8,7 @@
 #SBATCH -o output/Report-%x-%j.out                         # Combined output and error messages file
 #SBATCH --mail-type=ALL              # Mail preferences
 #SBATCH --mail-user=jmilz3@gatech.edu           # E-mail address for notifications
-#SBATCH --time=00:30:00
+#SBATCH --time=00:15:00
 
 cd $HOME/MCRNNOC/src/mcrnnoc/examples/linear/risk_neutral
 
