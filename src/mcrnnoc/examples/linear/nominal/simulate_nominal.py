@@ -47,7 +47,7 @@ lb = problem_data.lb
 ub = problem_data.ub
 beta = problem_data.beta
 yd = problem_data.yd
-
+f = problem_data.f
 
 U = FunctionSpace(mesh, "DG", 0)
 V = FunctionSpace(mesh, "CG", 1)
@@ -57,7 +57,7 @@ y = TrialFunction(V)
 v = TestFunction(V)
 
 a = (inner(grad(y), grad(v))) * dx
-L = u*v*dx
+L = u*v*dx + f*v*dx
 bc = DirichletBC(V, 0.0, "on_boundary")
 
 A, b  = assemble_system(a, L, bc)

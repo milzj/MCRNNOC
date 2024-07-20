@@ -36,6 +36,7 @@ class RandomLinearProblem(RandomProblem):
         self.ub = problem_data.ub
         self.beta = problem_data.beta
         self.yd = problem_data.yd
+        self.f = problem_data.f
         self.bcs = DirichletBC(self.V, 0.0, "on_boundary")
 
         # random field
@@ -57,12 +58,13 @@ class RandomLinearProblem(RandomProblem):
 
         U = self.U
         bcs = self.bcs
+        f = self.f
         _kappa = self.kappa.sample_vec(sample)
 
         kappa = Function(U)
         kappa.vector().set_local(_kappa)
 
-        F = (kappa*inner(grad(y), grad(v)) - u*v) * dx
+        F = (kappa*inner(grad(y), grad(v)) - u*v - f*v) * dx
         solve(F == 0, y, bcs=self.bcs)
 
 
