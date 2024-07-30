@@ -81,10 +81,10 @@ def plot_experiment(outdir, outdir_ref="", ndrop=0):
         raise ValueError(f"{experiment_name} unknown.")
 
     experiments, replications = experiment[('n_vec', 'N_vec')], sorted(stats.keys())
-    errors, errors_solutions = {}, {}
+    errors, errors_solutions, optimality_gap = {}, {}, {}
 
-    labels = [r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\chi_{\mathrm{ref}}(u_{N}^*)$"]
-    postfixes = ["gap", "regularizedgap", "canonical"]
+    labels = [r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\chi_{\mathrm{ref}}(u_{N}^*)$", r"$r_{\mathcal{G}}(u_N^*)$"]
+    postfixes = ["dualgap", "regularizedgap", "canonical", "optimalitygap"]
 
     if outdir_ref:
         mesh = fenics.UnitSquareMesh(n, n)
@@ -93,6 +93,8 @@ def plot_experiment(outdir, outdir_ref="", ndrop=0):
         L1norm = fw4pde.base.NormL1(U)
         ref_filename = np.loadtxt(f"{outdir_ref}/Reference_Simulation_filename.txt", dtype=str)
         uref_vec = np.loadtxt(f"output/{ref_filename}.txt")
+        ref_filename = str(ref_filename).replace("solution", "optimal_value")
+        ref_optval = np.loadtxt(f"output/{ref_filename}.txt")
 
     for i, (label_realizations, filename_postfix) in enumerate(zip(labels, postfixes)):
         for e in experiments:
@@ -109,8 +111,12 @@ def plot_experiment(outdir, outdir_ref="", ndrop=0):
                     u_minus_uref.vector().set_local(s_solutions - uref_vec)
                     errors_solutions[e].append(L1norm(u_minus_uref))
 
+
         x_vec = [e[x_id] for e in errors.keys()]
         y_vec = [errors[e] for e in experiments]
+
+        if i == 3 and outdir_ref:
+            y_vec = [y-ref_optval for y in y_vec]
 
         plot_data(x_vec, y_vec, xlabel, label_realizations, f"criticality_measure_{filename_postfix}", base, lsqs_base, empty_label=empty_label, ndrop=ndrop, outdir=outdir)
 
