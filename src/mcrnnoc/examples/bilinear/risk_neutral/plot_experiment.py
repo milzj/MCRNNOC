@@ -116,7 +116,7 @@ def plot_experiment(outdir, outdir_ref="", ndrop=0):
 
         if i == 0 and outdir_ref:
             y_vec = [errors_solutions[e] for e in experiments]
-            plot_data(x_vec, y_vec, xlabel, r"$\|\bar u_N - \bar u\|_{L^1(D)}$", "L1errors", base, lsqs_base, empty_label=empty_label, ndrop=ndrop, outdir=outdir)
+            plot_data(x_vec, y_vec, xlabel, r"$\|u_N^* - u^*\|_{L^1(D)}$", "L1errors", base, lsqs_base, empty_label=empty_label, ndrop=ndrop, outdir=outdir)
 
 if __name__ == "__main__":
     import sys

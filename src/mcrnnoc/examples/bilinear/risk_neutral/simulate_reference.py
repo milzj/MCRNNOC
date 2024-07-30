@@ -101,13 +101,16 @@ if __name__ == "__main__":
         print("Homotopy method with n = {}".format(n_))
         sol = simulate_reference(n_, N, initial_control=u_opt)
         u_opt = sol["control_final"].data
+        objval_opt = sol["objective_final"]
         MPI.comm_world.barrier()
-
 
     if mpi_rank == 0:
         # save control
         filename = outdir + "/" + now + "_reference_solution_mpi_rank={}_N={}_n={}".format(mpi_rank, N,n)
         np.savetxt(filename + ".txt", u_opt.vector().get_local())
+
+        filename = outdir + "/" + now + "_reference_optimal_value_mpi_rank={}_N={}_n={}".format(mpi_rank, N,n)
+        np.savetxt(filename + ".txt", [objval_opt])
 
         # save relative path + filename of control
         relative_path = filename.split("/")
@@ -131,4 +134,3 @@ if __name__ == "__main__":
         sol["gradient_best"] = sol["gradient_best"].data.vector()[:]
 
         save_dict(outdir, filename, sol)
-

@@ -158,7 +158,10 @@ class SAAProblems(object):
 
         problem = MoolaOptimizationProblem(rf, memoize=0)
         obj = problem.obj
-        obj(v_moola)
+        objval = obj(v_moola)
+
+        scaled_L1_norm = ScaledL1Norm(random_problem.control_space,beta)
+        objval += scaled_L1_norm(v_moola.data)
 
         deriv = obj.derivative(v_moola)
         grad = deriv.primal()
@@ -170,6 +173,7 @@ class SAAProblems(object):
         criticality_measures += [cm.gap(u, grad, deriv)]
         criticality_measures += [cm.rgap(u, grad, deriv)]
         criticality_measures += [cm.canonical_map(u, grad.data)]
+        criticality_measures += [objval]
 
         return criticality_measures
 

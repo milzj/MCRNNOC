@@ -27,7 +27,7 @@ experiment="Monte_Carlo_Rate_Test"
 experiment="Monte_Carlo_Rate_Fixed_Control"
 experiment="Monte_Carlo_Rate"
 mpiexec -n 40 python simulate_experiment.py $date $experiment $Nref
-python plot_experiment.py "output/Experiments/$experiment""_$date"
+python ../../bilinear/risk_neutral/plot_experiment.py "output/Experiments/$experiment""_$date"
 
 
 

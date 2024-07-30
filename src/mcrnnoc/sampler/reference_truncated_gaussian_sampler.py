@@ -68,10 +68,14 @@ class ReferenceTruncatedGaussianSampler(OptionsSampler):
             sampler = qmc.Sobol(d=d, scramble=False)
             q = sampler.random_base2(m=m)
 
-        else:
+        elif self.scramble == True:
             stream = self.streams[0]
             sampler = qmc.Sobol(d=d, scramble=True, seed=stream)
             q = sampler.random_base2(m=m)
+
+        elif self.scramble == "Uniform":
+            stream = self.streams[0]
+            q = stream.uniform(0.0, 1.0, (2**m, d))
 
         s = truncnorm.ppf(q, a_, b_, loc=loc, scale=std)
 
