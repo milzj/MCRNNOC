@@ -106,11 +106,11 @@ if __name__ == "__main__":
 
     if mpi_rank == 0:
         # save control
-        filename = outdir + "/" + now + "_reference_solution_mpi_rank={}_N={}_n={}".format(mpi_rank, N,n)
-        np.savetxt(filename + ".txt", u_opt.vector().get_local())
-
         filename = outdir + "/" + now + "_reference_optimal_value_mpi_rank={}_N={}_n={}".format(mpi_rank, N,n)
         np.savetxt(filename + ".txt", [objval_opt])
+
+        filename = outdir + "/" + now + "_reference_solution_mpi_rank={}_N={}_n={}".format(mpi_rank, N,n)
+        np.savetxt(filename + ".txt", u_opt.vector().get_local())
 
         # save relative path + filename of control
         relative_path = filename.split("/")
