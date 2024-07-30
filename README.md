@@ -36,6 +36,12 @@ docker run -it mcrnnoc
 
 ### Running the simulations
 
+#### Nominal problems
+
+#### Reference problems
+
+#### SAA problems
+
 ### Postprocessing
 
 ### Installation without using Docker
@@ -59,3 +65,6 @@ If you have any troubles please file an issue in the GitHub repository.
 
 ## License
 See [LICENSE](LICENSE)
+
+## Acknowledgement
+We thank the developers of https://github.com/scientificcomputing/example-paper.
