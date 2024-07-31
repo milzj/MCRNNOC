@@ -1,0 +1,1382 @@
+---------------------------------------
+Begin Slurm Prolog: Jul-30-2024 12:23:53
+Job ID:    899221
+User ID:   jmilz3
+Account:   gts-jmilz3
+Job name:  LinSimRef
+Partition: cpu-medium
+QOS:       inferno
+---------------------------------------
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    9.718471e-04    9.718471e-04             
+1          4.625768e-02    1.738628e-04    1.738628e-04              0          1.000000e+00   
+2          4.619639e-02    3.922083e-05    3.922083e-05              0          7.050321e-01   
+3          4.616074e-02    2.151238e-06    2.151238e-06              0          1.000000e+00   
+4          4.615976e-02    5.946670e-07    5.946670e-07              0          9.042564e-01   
+5          4.615945e-02    1.753405e-07    1.753405e-07              0          1.000000e+00   
+6          4.615938e-02    3.944161e-08    3.944161e-08              0          8.017188e-01   
+7          4.615935e-02    1.472752e-08    1.276437e-08              0          1.000000e+00   
+8          4.615934e-02    1.814120e-09    1.814120e-09              0          9.652820e-01   
+9          4.615934e-02    9.947800e-10    9.947800e-10              0          2.026120e-01   
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.615934e-02    4.574536e-10    4.574536e-10              0          8.704454e-01   
+11         4.615934e-02    3.935980e-11    3.935980e-11              0          2.111232e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.619043e-02    3.813308e-06    3.813308e-06             
+1          4.618666e-02    5.011161e-09    5.011161e-09              0          1.000000e+00   
+2          4.618666e-02    1.218224e-09    1.218224e-09              0          7.253231e-01   
+3          4.618666e-02    4.423118e-10    2.558494e-10              0          1.000000e+00   
+4          4.618666e-02    8.673617e-19    0.000000e+00              0          9.662790e-01   
+Termination message: Dual gap <= tolerance.
+---------------------------------------
+Begin Slurm Epilog: Jul-30-2024 12:32:33
+Job ID:        899221
+Array Job ID:  _4294967294
+User ID:       jmilz3
+Account:       gts-jmilz3
+Job name:      LinSimRef
+Resources:     cpu=40,mem=640G,node=40
+Rsrc Used:     cput=05:47:20,vmem=12232K,walltime=00:08:41,mem=12220K,energy_used=0
+Partition:     cpu-medium
+QOS:           inferno
+Nodes:         atl1-1-01-004-1-[1-2],atl1-1-01-004-2-2,atl1-1-01-004-3-[1-2],atl1-1-01-004-4-[1-2],atl1-1-01-004-5-[1-2],atl1-1-01-004-6-2,atl1-1-01-004-8-2,atl1-1-01-004-9-[1-2],atl1-1-01-004-10-[1-2],atl1-1-01-004-11-[1-2],atl1-1-01-004-12-[1-2],atl1-1-01-004-15-2,atl1-1-01-004-16-[1-2],atl1-1-01-004-17-[1-2],atl1-1-01-004-18-[1-2],atl1-1-01-004-20-1,atl1-1-01-004-22-1,atl1-1-01-004-24-1,atl1-1-01-004-25-[1-2],atl1-1-01-004-26-[1-2],atl1-1-01-004-29-2,atl1-1-01-004-30-[1-2],atl1-1-02-002-1-2,atl1-1-02-002-3-2,atl1-1-02-002-5-1,atl1-1-02-002-6-1
+---------------------------------------
