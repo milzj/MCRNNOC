@@ -1,21 +1,14 @@
-# Supplementary code for the paper: Empirical estimators for risk-neutral composite optimal control with applications to bang-bang control
+# Supplementary code for the paper: Empirical risk minimization for risk-neutral composite optimal control with applications to bang-bang control
 
 This repository contains supplementary code for the paper
 
-> J. Milz and D. Walter: Empirical estimators for risk-neutral composite optimal control with applications to bang-bang control, working paper, Georgia Tech and HU Berlin, 2023.
+> J. Milz and D. Walter: Empirical risk minimization for risk-neutral composite optimal control with applications to bang-bang control, 2023.
 
 ## Abstract
-Nonsmooth composite optimization problems under uncertainty are prevalent in various scientific and engineering applications.
-We consider risk-neutral composite optimal control problems, where the objective function is the sum of
-a potentially nonconvex expectation function and a nonsmooth convex function.
-The expectation functions  are defined by solution operators of parameterized partial differential equations (PDEs).
-To approximate the risk-neutral optimization problems, we use a  Monte Carlo sample-based approach,
-study its asymptotic consistency, and derive nonasymptotic sample size estimates. 
-Our analyses leverage problem structure commonly encountered in PDE-constrained optimization problems, including compact embeddings. We apply our findings to bang-bang-type optimal control problems and propose the use of a conditional gradient method to solve them effectively.
-We present numerical illustrations.
+
+Nonsmooth composite optimization problems under uncertainty are prevalent in various scientific and engineering applications. We consider risk-neutral composite optimal control problems, where the objective function is the sum of a potentially nonconvex expectation function and a nonsmooth convex function. To approximate the risk-neutral optimization problems, we use a Monte Carlo sample-based approach, study its asymptotic consistency, and derive nonasymptotic sample size estimates. Our analyses leverage problem structure commonly encountered in PDE-constrained optimization problems, including compact embeddings and growth conditions. We apply our findings to bang-bang-type optimal control problems and propose the use of a conditional gradient method to solve them effectively. We present numerical illustrations.
 
 ## Getting started
-
 
 ### Docker
 
@@ -34,10 +27,6 @@ docker build -t mcrnnoc . --no-cache --network=host
 docker run -it mcrnnoc
 ```
 
-### Running the simulations
-
-### Postprocessing
-
 ### Installation without using Docker
 
 ```
@@ -45,7 +34,119 @@ conda env create -f environment.yml
 conda activate MCRNNOC
 ```
 
+### Running the simulations
+
+#### Linear Problem
+
+##### Nominal Problem
+
+```shell
+cd src/mcrnnoc/examples/linear/nominal
+````
+
+Execute
+```
+./simulate_nominal.sh
+```
+to start the simulation.
+
+##### Reference problems
+
+```shell
+cd src/mcrnnoc/examples/linear/risk_neutral
+```
+
+Execute
+```
+sbatch simulate_reference.sbatch
+```
+to start the simulation.
+
+The following shell script solves a reference problem for small mesh width and sample size
+```
+./test_simulate_reference.sh
+```
+
+##### SAA experiments
+
+```shell
+cd src/mcrnnoc/examples/linear/risk_neutral
+```
+
+Execute
+```
+sbatch simulate_experiment.sbatch
+```
+to start the simulation.
+
+The following shell script simulates SAA experiments for small mesh width and sample sizes
+```
+./test_simulate_experiment.sh
+```
+
+##### Postprocessing: Generating convergence plots
+
+```
+./plot_experiment.sh
+```
+
+#### Bilinear Problem
+
+##### Nominal Problem
+
+```shell
+cd src/mcrnnoc/examples/bilinear/nominal
+````
+
+Execute
+```
+./simulate_nominal.sh
+```
+to start the simulation.
+
+##### Reference problems
+
+```shell
+cd src/mcrnnoc/examples/bilinear/risk_neutral
+```
+
+Execute
+```
+sbatch simulate_reference.sbatch
+```
+to start the simulation.
+
+The following shell script solves a reference problem for small mesh width and sample size
+```
+./test_simulate_reference.sh
+```
+
+##### SAA experiments
+
+```shell
+cd src/mcrnnoc/examples/bilinear/risk_neutral
+```
+
+Execute
+```
+sbatch simulate_experiment.sbatch
+```
+to start the simulation.
+
+The following shell script simulates SAA experiments for small mesh width and sample sizes
+```
+./test_simulate_experiment.sh
+```
+
+##### Postprocessing: Generating convergence plots
+
+```
+./plot_experiment.sh
+```
+
 ## References
+
+- Partnership for an Advanced Computing Environment (PACE) at the Georgia Institute of Technology, Atlanta, Georgia, USA, http://www.pace.gatech.edu
 
 - The implementation of the [random field](./src/mcrnnoc/random_field) is adapted from
 [poisson-risk-neutral-lognormal](https://github.com/milzj/FW4PDE/tree/main/examples/convex/poisson-risk-neutral-lognormal).
@@ -59,3 +160,6 @@ If you have any troubles please file an issue in the GitHub repository.
 
 ## License
 See [LICENSE](LICENSE)
+
+## Acknowledgement
+We thank the developers of https://github.com/scientificcomputing/example-paper.
