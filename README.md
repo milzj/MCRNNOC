@@ -10,7 +10,6 @@ Nonsmooth composite optimization problems under uncertainty are prevalent in var
 
 ## Getting started
 
-
 ### Docker
 
 We provide a pre-build Docker image which can be used to run the the code in this repository. First thing you need to do is to ensure that you have [docker installed](https://docs.docker.com/get-docker/).
@@ -28,16 +27,6 @@ docker build -t mcrnnoc . --no-cache --network=host
 docker run -it mcrnnoc
 ```
 
-### Running the simulations
-
-#### Nominal problems
-
-#### Reference problems
-
-#### SAA problems
-
-### Postprocessing
-
 ### Installation without using Docker
 
 ```
@@ -45,7 +34,119 @@ conda env create -f environment.yml
 conda activate MCRNNOC
 ```
 
+### Running the simulations
+
+#### Linear Problem
+
+##### Nominal Problem
+
+```shell
+cd src/mcrnnoc/examples/linear/nominal
+````
+
+Execute
+```
+./simulate_nominal.sh
+```
+to start the simulation.
+
+##### Reference problems
+
+```shell
+cd src/mcrnnoc/examples/linear/risk_neutral
+```
+
+Execute
+```
+sbatch simulate_reference.sbatch
+```
+to start the simulation.
+
+The following shell script solves a reference problem for small mesh width and sample size
+```
+./test_simulate_reference.sh
+```
+
+##### SAA experiments
+
+```shell
+cd src/mcrnnoc/examples/linear/risk_neutral
+```
+
+Execute
+```
+sbatch simulate_experiment.sbatch
+```
+to start the simulation.
+
+The following shell script simulates SAA experiments for small mesh width and sample sizes
+```
+./test_simulate_experiment.sh
+```
+
+##### Postprocessing: Generating convergence plots
+
+```
+./plot_experiment.sh
+```
+
+#### Bilinear Problem
+
+##### Nominal Problem
+
+```shell
+cd src/mcrnnoc/examples/bilinear/nominal
+````
+
+Execute
+```
+./simulate_nominal.sh
+```
+to start the simulation.
+
+##### Reference problems
+
+```shell
+cd src/mcrnnoc/examples/bilinear/risk_neutral
+```
+
+Execute
+```
+sbatch simulate_reference.sbatch
+```
+to start the simulation.
+
+The following shell script solves a reference problem for small mesh width and sample size
+```
+./test_simulate_reference.sh
+```
+
+##### SAA experiments
+
+```shell
+cd src/mcrnnoc/examples/bilinear/risk_neutral
+```
+
+Execute
+```
+sbatch simulate_experiment.sbatch
+```
+to start the simulation.
+
+The following shell script simulates SAA experiments for small mesh width and sample sizes
+```
+./test_simulate_experiment.sh
+```
+
+##### Postprocessing: Generating convergence plots
+
+```
+./plot_experiment.sh
+```
+
 ## References
+
+- Partnership for an Advanced Computing Environment (PACE) at the Georgia Institute of Technology, Atlanta, Georgia, USA, http://www.pace.gatech.edu
 
 - The implementation of the [random field](./src/mcrnnoc/random_field) is adapted from
 [poisson-risk-neutral-lognormal](https://github.com/milzj/FW4PDE/tree/main/examples/convex/poisson-risk-neutral-lognormal).
