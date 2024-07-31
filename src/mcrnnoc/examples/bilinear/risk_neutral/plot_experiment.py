@@ -83,7 +83,7 @@ def plot_experiment(outdir, outdir_ref="", ndrop=0):
     experiments, replications = experiment[('n_vec', 'N_vec')], sorted(stats.keys())
     errors, errors_solutions, optimality_gap = {}, {}, {}
 
-    labels = [r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\chi_{\mathrm{ref}}(u_{N}^*)$", r"$r_{\mathcal{G}}(u_N^*)$"]
+    labels = [r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\Psi_{\mathrm{ref}}(u_{N}^*)$", r"$\chi_{\mathrm{ref}}(u_{N}^*)$", r"$G_{\mathrm{ref}}(u_N^*)-G_{\mathrm{ref}}(u^*)$"]
     postfixes = ["dualgap", "regularizedgap", "canonical", "optimalitygap"]
 
     if outdir_ref:
