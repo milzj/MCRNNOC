@@ -1,8 +1,8 @@
-# Supplementary code for the paper: Empirical estimators for risk-neutral composite optimal control with applications to bang-bang control
+# Supplementary code for the paper: Empirical risk minimization for risk-neutral composite optimal control with applications to bang-bang control
 
 This repository contains supplementary code for the paper
 
-> J. Milz and D. Walter: Empirical estimators for risk-neutral composite optimal control with applications to bang-bang control, working paper, Georgia Tech and HU Berlin, 2023.
+> J. Milz and D. Walter: Empirical risk minimization for risk-neutral composite optimal control with applications to bang-bang control, 2023.
 
 ## Abstract
 Nonsmooth composite optimization problems under uncertainty are prevalent in various scientific and engineering applications.
