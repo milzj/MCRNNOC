@@ -8,6 +8,7 @@ on:
     branchess:
       - "*"
 
+
 jobs:
   build:
     runs-on: "ubuntu-latest"
@@ -15,20 +16,14 @@ jobs:
       run:
         shell: bash -l {0}
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v3
+      - uses: actions/checkout@v4
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: 3.8
-      - name: Add conda to system path
-        run: |
-          # $CONDA is an environment variable pointing to the root of the miniconda directory
-          echo $CONDA/bin >> $GITHUB_PATH
-      - name: Install dependencies
-        run: |
-          conda install -n base conda-libmamba-solver
-          sudo conda env update --file environment.yml --name base --experimental-solver=libmamba
+          activate-environment: anaconda-client-env
+          environment-file: environment.yml
+          python-version: 3.12.4
+          auto-activate-base: false
       - name: Lint with flake8
         run: |
           conda install flake8
@@ -38,5 +33,10 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
-          pip install pytest
+          conda install pytest
+          pip install -e .
           pytest
+      - uses: mpi4py/setup-mpi@v1
+      - name: Parallel Test with pytest
+        run: |
+          mpirun -oversubscribe -np 4 python3 -m pytest tests/test_random_problem/test_split_samples.py

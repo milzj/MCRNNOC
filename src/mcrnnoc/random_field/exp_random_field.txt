@@ -1,0 +1,15 @@
+Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+========================================
+Characteristics of random field
+options random field={'num_addends': 10, 'len_scale': 1.0}
+sampler std=1.0
+minimum of random field=0.0012124907358416616
+mean of (1/minimum of random field)=4.9892789120960295
+std of (1/minimum of random field)=13.288156013810513
+maximum of random field=35.19516829026035
+average condition number of random field=16.7102160706893
+median condition number of random field=14.003681779372187
+std condition number of random field=15.08329154219477
+worst case condition number of random field=764.7460414441362
+(estimated using N=4096 samples)
+========================================
