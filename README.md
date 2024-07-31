@@ -5,14 +5,8 @@ This repository contains supplementary code for the paper
 > J. Milz and D. Walter: Empirical risk minimization for risk-neutral composite optimal control with applications to bang-bang control, 2023.
 
 ## Abstract
-Nonsmooth composite optimization problems under uncertainty are prevalent in various scientific and engineering applications.
-We consider risk-neutral composite optimal control problems, where the objective function is the sum of
-a potentially nonconvex expectation function and a nonsmooth convex function.
-The expectation functions  are defined by solution operators of parameterized partial differential equations (PDEs).
-To approximate the risk-neutral optimization problems, we use a  Monte Carlo sample-based approach,
-study its asymptotic consistency, and derive nonasymptotic sample size estimates. 
-Our analyses leverage problem structure commonly encountered in PDE-constrained optimization problems, including compact embeddings. We apply our findings to bang-bang-type optimal control problems and propose the use of a conditional gradient method to solve them effectively.
-We present numerical illustrations.
+
+Nonsmooth composite optimization problems under uncertainty are prevalent in various scientific and engineering applications. We consider risk-neutral composite optimal control problems, where the objective function is the sum of a potentially nonconvex expectation function and a nonsmooth convex function. To approximate the risk-neutral optimization problems, we use a Monte Carlo sample-based approach, study its asymptotic consistency, and derive nonasymptotic sample size estimates. Our analyses leverage problem structure commonly encountered in PDE-constrained optimization problems, including compact embeddings and growth conditions. We apply our findings to bang-bang-type optimal control problems and propose the use of a conditional gradient method to solve them effectively. We present numerical illustrations.
 
 ## Getting started
 
