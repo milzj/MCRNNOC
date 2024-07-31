@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/588990015.svg)](https://zenodo.org/doi/10.5281/zenodo.13145218)
+
 # Supplementary code for the paper: Empirical risk minimization for risk-neutral composite optimal control with applications to bang-bang control
 
 This repository contains supplementary code for the paper
