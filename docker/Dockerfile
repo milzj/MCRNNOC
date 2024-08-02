@@ -18,6 +18,7 @@ RUN source ~/.bashrc && exec bash
 
 RUN miniconda3/bin/conda init bash
 RUN miniconda3/bin/conda init zsh
+RUN source ~/.bashrc && exec bash
 
 ARG REPO_BRANCH="main"
 
