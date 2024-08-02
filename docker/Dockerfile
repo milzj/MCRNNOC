@@ -9,7 +9,7 @@ RUN apt-get update && \
 
 # Install miniconda
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-py312_24.5.0-0-Linux-x86_64.sh -O /tmp/miniconda.sh
-RUN /bin/bash /tmp/miniconda.sh -b -p /opt/conda && \
+RUN /bin/bash /tmp/miniconda.sh -b -p /opt/conda && mkdir /opt/conda/_conda && \
     rm /tmp/miniconda.sh && \
     echo "export PATH=/opt/conda/bin:$PATH" > /etc/profile.d/conda.sh
 ENV PATH /opt/conda/bin:$PATH
