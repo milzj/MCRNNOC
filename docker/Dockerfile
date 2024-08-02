@@ -20,6 +20,6 @@ ARG REPO_BRANCH="main"
 WORKDIR /repo
 
 # git clone and conda create
-RUN git clone git@github.com:milzj/MCRNNOC.git
+RUN git clone https://github.com/milzj/MCRNNOC.git
 RUN cd MCRNNOC && conda env create -f environment.yml
 RUN cd && conda init bash && exec bash
