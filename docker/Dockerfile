@@ -15,6 +15,9 @@ RUN rm -rf ~/miniconda3/miniconda.sh
 RUN echo "export PATH=/miniconda3/bin/conda:$PATH" > /etc/profile.d/conda.sh
 ENV PATH /miniconda3/bin/conda:$PATH
 
+RUN ~/miniconda3/bin/conda init bash
+RUN ~/miniconda3/bin/conda init zsh
+
 ARG REPO_BRANCH="main"
 
 WORKDIR /repo
