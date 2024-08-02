@@ -24,5 +24,5 @@ WORKDIR /repo
 
 # git clone and conda create
 RUN git clone --branch ${REPO_BRANCH} --single-branch https://github.com/milzj/MCRNNOC
-RUN cd MCRNNOC && conda env create -f environment.yml
-RUN cd && conda init bash && exec bash
+RUN cd MCRNNOC && root/miniconda3/bin/conda env create -f environment.yml
+RUN cd && root/miniconda3/bin/conda init bash && exec bash
