@@ -14,11 +14,11 @@ RUN bash miniconda3/miniconda.sh -b -u -p miniconda3
 RUN rm -rf miniconda3/miniconda.sh
 RUN echo "export PATH=miniconda3/bin/conda:$PATH" > /etc/profile.d/conda.sh
 ENV PATH miniconda3/bin/conda:$PATH
-RUN source ~/.bashrc && exec bash
+RUN exec bash
 
 RUN miniconda3/bin/conda init bash
 RUN miniconda3/bin/conda init zsh
-RUN source ~/.bashrc && exec bash
+RUN exec bash
 
 ARG REPO_BRANCH="main"
 
