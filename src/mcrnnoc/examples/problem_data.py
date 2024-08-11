@@ -11,7 +11,7 @@ class ProblemData(object):
         self._lb = Constant(0.0)
         self._ub = Constant(1.0)
         self._g = Constant(1.0)
-        self._beta = 0.0005
+        self._beta = 0.00055
 
     @property
     def yd(self):

@@ -3,7 +3,7 @@
 #SBATCH -J SimExp                    # Job name
 #SBATCH --account=gts-jmilz3                     # charge account
 #SBATCH -N 40 --ntasks-per-node=1                  # number of nodes and cores per node
-#SBATCH --mem-per-cpu=16gb                        # Memory per core
+#SBATCH --mem-per-cpu=8gb                        # Memory per core
 #SBATCH -qinferno                               # QOS Name
 #SBATCH -o output/Report-%x-%j.out                         # Combined output and error messages file
 #SBATCH --mail-type=ALL              # Mail preferences
