@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<VTKFile type="Collection" version="0.1">
+  <Collection>
+    <DataSet timestep="0" part="0" file="11-Aug-2024-13-19-54_reference_solution_mpi_rank=0_N=8192_n=64000000.vtu" />
+  </Collection>
+</VTKFile>
