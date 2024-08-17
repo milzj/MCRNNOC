@@ -1,0 +1,1782 @@
+---------------------------------------
+Begin Slurm Prolog: Aug-11-2024 13:19:43
+Job ID:    985988
+User ID:   jmilz3
+Account:   gts-jmilz3
+Job name:  SimRef
+Partition: cpu-small
+QOS:       inferno
+---------------------------------------
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+Homotopy method
+
+Homotopy method with n = 32
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.693147e-02    8.621522e-04    8.621522e-04             
+1          4.626674e-02    6.459959e-06    6.459959e-06              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.626264e-02    1.966320e-06    1.966320e-06              0          6.666667e-01   
+Quadratic model is not a local upper bound to objective
+3          4.626167e-02    9.650908e-07    9.650908e-07              0          5.000000e-01   
+Quadratic model is not a local upper bound to objective
+4          4.626128e-02    5.757502e-07    5.757502e-07              0          4.000000e-01   
+Quadratic model is not a local upper bound to objective
+5          4.626109e-02    3.827505e-07    3.827505e-07              0          3.333333e-01   
+Quadratic model is not a local upper bound to objective
+6          4.626098e-02    2.730883e-07    2.730883e-07              0          2.857143e-01   
+7          4.626071e-02    2.734983e-09    1.602937e-09              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+8          4.626071e-02    1.502099e-09    1.084429e-09              0          2.222222e-01   
+Quadratic model is not a local upper bound to objective
+9          4.626071e-02    8.508944e-10    8.278446e-10              0          2.000000e-01   
+Quadratic model is not a local upper bound to objective
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+10         4.626071e-02    4.871481e-10    4.871481e-10              0          1.818182e-01   
+Quadratic model is not a local upper bound to objective
+11         4.626071e-02    2.751663e-10    2.751663e-10              0          1.666667e-01   
+12         4.626071e-02    8.681964e-11    8.681964e-11              0          4.205792e-01   
+Termination message: Dual gap <= tolerance.
+Homotopy method with n = 64
+Franke--Wolfe method.
+Maximum number iterations: 100
+Step size: Demyanov--Rubinov optimal step size.
+
+iter       obj.val         dual gap        obj.val(best-lower)       ls calls   stepsize       
+0          4.629823e-02    1.151243e-06    1.151243e-06             
+1          4.629708e-02    8.313042e-10    8.313042e-10              0          1.000000e+00   
+Quadratic model is not a local upper bound to objective
+2          4.629708e-02    2.102483e-10    2.102483e-10              0          6.666667e-01   
+3          4.629708e-02    5.968878e-11    2.797595e-11              0          1.000000e+00   
+Termination message: Dual gap <= tolerance.
+---------------------------------------
+Begin Slurm Epilog: Aug-11-2024 13:29:47
+Job ID:        985988
+Array Job ID:  _4294967294
+User ID:       jmilz3
+Account:       gts-jmilz3
+Job name:      SimRef
+Resources:     cpu=40,mem=320G,node=40
+Rsrc Used:     cput=06:42:40,vmem=103336K,walltime=00:10:04,mem=100208K,energy_used=0
+Partition:     cpu-small
+QOS:           inferno
+Nodes:         atl1-1-02-015-1-[1-2],atl1-1-02-015-2-[1-2],atl1-1-02-015-3-2,atl1-1-02-015-4-2,atl1-1-02-015-5-[1-2],atl1-1-02-015-6-[1-2],atl1-1-02-015-7-[1-2],atl1-1-02-015-8-[1-2],atl1-1-02-015-9-[1-2],atl1-1-02-015-10-[1-2],atl1-1-02-015-11-[1-2],atl1-1-02-015-12-[1-2],atl1-1-02-015-13-[1-2],atl1-1-02-015-29-1,atl1-1-02-015-31-1,atl1-1-02-015-34-2,atl1-1-02-017-1-[1-2],atl1-1-02-017-2-[1-2],atl1-1-02-017-3-[1-2],atl1-1-02-017-4-2,atl1-1-02-017-5-[1-2],atl1-1-02-017-6-[1-2],atl1-1-02-017-7-1,atl1-1-02-017-8-1
+---------------------------------------

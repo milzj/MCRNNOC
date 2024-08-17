@@ -1,1 +1,0 @@
-Reference_Simulation_n=64_N=8192_date=30-Jul-2024-12-24-25/30-Jul-2024-12-24-25_reference_solution_mpi_rank=0_N=8192_n=64

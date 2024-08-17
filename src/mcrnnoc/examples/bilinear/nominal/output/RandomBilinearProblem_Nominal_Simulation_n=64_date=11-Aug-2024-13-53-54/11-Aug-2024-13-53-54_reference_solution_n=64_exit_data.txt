@@ -1,0 +1,3 @@
+{'control_final': array([0., 0., 0., ..., 0., 0., 0.]), 'control_best': array([0., 0., 0., ..., 0., 0., 0.]), 'objective_final': 0.043021440856815314, 'objective_best': 0.043021440856815314, 'objective_lower': 0.043021440856815314, 'best_minus_lower': 0.0, 'iteration': 3, 'dual_gap': 0.0, 'ls_calls': 0, 'step_size': 1.0, 'status': 1, 'gradient_final': array([ 4.90698424e-09,  4.90698424e-09,  1.98126506e-08, ...,
+       -2.05560968e-07, -6.14634144e-08, -6.14634144e-08]), 'gradient_best': array([ 4.90698424e-09,  4.90698424e-09,  1.98126506e-08, ...,
+       -2.05560968e-07, -6.14634144e-08, -6.14634144e-08])}
