@@ -4,7 +4,7 @@
 
 This repository contains supplementary code for the paper
 
-> J. Milz and D. Walter: Empirical risk minimization for risk-neutral composite optimal control with applications to bang-bang control, 2023.
+> J. Milz and D. Walter: Empirical risk minimization for risk-neutral composite optimal control with applications to bang-bang control, https://arxiv.org/abs/2408.10384, 2024.
 
 ## Abstract
 
